@@ -35,7 +35,7 @@ export default function OAuth() {
                 dispatch(signInSuccess(data));
                 console.log('Google Sign-In successful');
                 console.log(data);
-                 navigate("/profile");
+                navigate("/student-dashboard");
             }
         } catch (error) {
             console.log(error);

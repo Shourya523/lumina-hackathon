@@ -10,7 +10,7 @@ import {
     Eye,
 } from 'react-feather';
 import { useSelector,useDispatch } from 'react-redux';
-import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { signOut } from '../Redux/user.redux.js';
 import './profilepage.css';
 
@@ -19,13 +19,15 @@ const avatarUrl = '../../public/default-avatar.png';
 
 const ProfilePage = () => {
     const dispatch = useDispatch();
-    const fileInputRef = useRef(null);
+    const navigate = useNavigate();
     const {currentUser} = useSelector(state => state.user);
     const handleSignOut = async() => {
         console.log('Signing out user...');
         try {
             await fetch('http://localhost:8000/api/auth/signout');
             dispatch(signOut());
+            // navigate to home after signing out
+            navigate('/');
             console.log('User signed out successfully');
         } catch (error) {
             console.error('Error signing out:', error);

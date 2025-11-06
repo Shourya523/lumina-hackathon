@@ -39,13 +39,13 @@ export default function Signup() {
             } else {
                 toast.success('Sign Up successful!');
                 setFormData({});
-                navigate('/signin');
-                
+                navigate('/student-dashboard');
             }
         } catch (err) {
             setLoading(false);
             setError('Network error');
             toast.error('Network error');
+            console.error(err);
         }
     }
 
@@ -84,7 +84,7 @@ export default function Signup() {
                                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                             </span>
                         </div>
-                        <button disabled={Loading} type="submit" className="submit-btn" onClick={handleSubmit}>{Loading ? 'Loading...' : 'Sign Up'}</button>
+                        <button disabled={Loading} type="submit" className="submit-btn submit-btn-text-signup" onClick={handleSubmit}>{Loading ? 'Loading...' : 'Sign Up'}</button>
                     </form>
 
                     <p className="footer-link">

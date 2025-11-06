@@ -11,7 +11,7 @@ import { Mail, Lock, Eye, EyeOff, Contact } from 'lucide-react';
 export default function SignIn() {
     const dispatchEvent = useDispatch();
     const navigate = useNavigate();
-    const { loading, error } = useSelector((state) => state.user);
+    const { loading } = useSelector((state) => state.user);
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({});
 
@@ -41,7 +41,7 @@ export default function SignIn() {
                 dispatchEvent(signInSuccess(data));
                 toast.success('Sign In successful!');
                 setFormData({});
-                navigate('/profile');
+                navigate('/student-dashboard');
             }
         } catch (err) {
             dispatchEvent(signInFailure(err));
@@ -81,7 +81,7 @@ export default function SignIn() {
                                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                             </span>
                         </div>
-                        <button disabled={loading} type="submit" className="submit-btn-signin" onClick={handleSubmit}>{loading ? 'Loading...' : 'Sign In'}</button>
+                        <button disabled={loading} type="submit" className="submit-btn-signin submit-btn-text-signin" onClick={handleSubmit}>{loading ? 'Loading...' : 'Sign In'}</button>
                     </form>
 
                     <p className="footer-link-signin">

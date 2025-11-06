@@ -260,6 +260,17 @@ form {
     filter: brightness(0.9); /* Changed from #357abd */
 }
 
+.submit-btn {
+    width: 100%;
+}
+
+.submit-btn-text-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .footer-link {
     text-align: center;
     margin-top: 1.5rem;

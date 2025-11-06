@@ -220,6 +220,14 @@ form-signin { /* Note: This might need to be 'form.form-signin' or just 'form' d
     font-weight: 500;
     cursor: pointer;
     transition: filter 0.2s;
+    width: 100%;
+}
+
+.submit-btn-text-signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .submit-btn-signin:hover {
