@@ -10,13 +10,15 @@ import {
     GraduationCap,
     Bell,
     Coffee,
-    Menu
+    Menu,
+    StickyNote, // Added for Notes
+    LifeBuoy    // Added for Support
 } from "lucide-react";
 
 export default function SideBarStudent({ activePage = "" }) {
     const navigate = useNavigate();
     const [collapsed, setCollapsed] = useState(false);
-    const [lang] = useState("en");
+    const [lang] = useState("en"); // Hardcoded to 'en' for now
 
     activePage = activePage.toLowerCase(); // ✅ Ensures matching works consistently
 
@@ -29,6 +31,8 @@ export default function SideBarStudent({ activePage = "" }) {
         notifications: lang === "hi" ? "सूचनाएँ" : "Notifications",
         studentDashboard: lang === "hi" ? "छात्र डैशबोर्ड" : "Student Dashboard",
         jcafe: lang === "hi" ? "जे कैफे" : "JCafe",
+        notes: lang === "hi" ? "नोट्स" : "Notes", // Added Notes label
+        support: lang === "hi" ? "सहायता" : "Support", // Added Support label
         expand: lang === "hi" ? "विस्तार करें" : "Expand",
         collapse: lang === "hi" ? "संकुचित करें" : "Collapse",
         edusync: "EduSync"
@@ -52,6 +56,7 @@ export default function SideBarStudent({ activePage = "" }) {
             </div>
 
             <nav className="sidebar-student-nav">
+                {/* --- Main Navigation List --- */}
                 <ul>
                     <li className={activePage === 'dashboard' ? 'active' : ''} onClick={() => handleNavigate("-dashboard")}>
                         <a href="#">
@@ -84,6 +89,24 @@ export default function SideBarStudent({ activePage = "" }) {
                         <a href="#">
                             <Coffee size={20} />
                             <span className="label">{labels.jcafe}</span>
+                        </a>
+                    </li>
+
+                    {/* --- ADDED NOTES ITEM --- */}
+                    <li className={activePage === 'notes' ? 'active' : ''} onClick={() => handleNavigate("/notes")}>
+                        <a href="#">
+                            <StickyNote size={20} />
+                            <span className="label">{labels.notes}</span>
+                        </a>
+                    </li>
+                </ul>
+
+                {/* --- ADDED SUPPORT SECTION --- */}
+                <ul className="support-nav-section"> {/* Added a new list for the support section */}
+                    <li className={activePage === 'support' ? 'active' : ''} onClick={() => handleNavigate("/support")}>
+                        <a href="#">
+                            <LifeBuoy size={20} />
+                            <span className="label">{labels.support}</span>
                         </a>
                     </li>
                 </ul>

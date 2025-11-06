@@ -17,17 +17,27 @@ export const addToCart = async (req, res, next) => {
     try {
         let cart = await CanteenCart.findOne({ userId: req.user.id });
 
+        // Allow adding items without itemId (for frontend orders)
+        const itemToAdd = { name, price, quantity };
+        if (itemId) itemToAdd.itemId = itemId;
+
         if (!cart) {
             cart = new CanteenCart({
                 userId: req.user.id,
-                items: [{ itemId, name, price, quantity }]
+                items: [itemToAdd]
             });
         } else {
-            const existingItem = cart.items.find(item => item.itemId.toString() === itemId);
+            // Match by name if itemId is not present
+            let existingItem;
+            if (itemId) {
+                existingItem = cart.items.find(item => item.itemId && item.itemId.toString() === itemId);
+            } else {
+                existingItem = cart.items.find(item => item.name === name);
+            }
             if (existingItem) {
                 existingItem.quantity += quantity || 1;
             } else {
-                cart.items.push({ itemId, name, price, quantity });
+                cart.items.push(itemToAdd);
             }
         }
 

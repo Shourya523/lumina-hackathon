@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import "./JCafe.css";
 import SideBarStudent from "../../components/SideBar-student";
 import Header from "../../components/Header";
@@ -6,11 +7,15 @@ import { ShoppingCart, CheckCircle, X } from "lucide-react";
 import qrImage from "../../assets/qr.jpg";
 
 const menuItems = [
-  { name: "Veg Samosa", price: 15, desc: "Crispy fried pastry with a spiced potato filling." },
-  { name: "Vada Pav", price: 25, desc: "Mumbai style potato patty in pav." },
+  { name: "Samosa", price: 15, desc: "Crispy fried pastry with a spiced potato filling." },
+  { name: "Paneer Patty", price: 25, desc: "Patty with paneer filling" },
   { name: "Veg Thali", price: 80, desc: "Dal, sabzi, roti, rice & salad." },
   { name: "Chai", price: 10, desc: "Hot refreshing tea." },
   { name: "Coffee", price: 20, desc: "Strong and bold." },
+  { name: "Chips", price: 20, desc: "Classic old snack" },
+  { name: "Cold drink (small)", price: 20, desc: "Keep urself fresh" },
+  { name: "Cold drink (large)", price: 40, desc: "Keep urself and ur friends fresh" },
+  { name: "Pasta", price: 40, desc: "Quick, cheesy and satisfying." },
 ];
 
 export default function JCafe() {
@@ -18,6 +23,8 @@ export default function JCafe() {
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [timer, setTimer] = useState(120);
+  const [orderId, setOrderId] = useState("");
+  const { currentUser } = useSelector((state) => state.user);
 
   const addToCart = (item) => {
     setCart((prev) => {
@@ -62,14 +69,52 @@ export default function JCafe() {
     return () => clearInterval(interval);
   }, [showPopup]);
 
-  const placeOrder = () => {
-    setOrderPlaced(true);
-    setCart([]);
-
-    setTimeout(() => {
-      alert("✅ Your order is ready! Please collect it at the JCafe counter.");
-      setOrderPlaced(false);
-    }, 60000);
+  const generateOrderId = async () => {
+    let unique = false;
+    let newOrderId = "";
+    while (!unique) {
+      newOrderId = "ORD-" + Math.random().toString(36).substr(2, 9).toUpperCase();
+      unique = true;
+    }
+    return newOrderId;
+  };
+  const placeOrder = async () => {
+    if (!cart.length) return;
+    const newOrderId = await generateOrderId();
+    setOrderId(newOrderId);
+    const orderData = {
+      orderId: newOrderId,
+      items: cart.map(item => ({
+        name: item.name,
+        price: item.price,
+        quantity: item.qty
+      })),
+      total: totalPrice,
+    };
+    try {
+      for (const item of orderData.items) {
+        await fetch("http://localhost:8000/api/cart/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify({
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            orderId: newOrderId
+          })
+        });
+      }
+      setOrderPlaced(true);
+      setCart([]);
+      setTimeout(() => {
+        alert(`✅ Your order (${newOrderId}) is ready! Please collect it at the JCafe counter.`);
+        setOrderPlaced(false);
+        setOrderId("");
+      }, 10000);
+    } catch (err) {
+      alert("Failed to place order. Please try again.");
+    }
   };
 
   const closePopup = () => {
@@ -115,7 +160,7 @@ export default function JCafe() {
 
                 <div className="cafe-cart-total">Total: ₹{totalPrice}</div>
 
-                <button className="cafe-order-button" onClick={openPaymentPopup}>
+                <button className="cafe-order-button" onClick={placeOrder}>
                   Place Order
                 </button>
               </>
@@ -138,6 +183,7 @@ export default function JCafe() {
 
             <h2>Scan to Pay</h2>
             <p>Total: ₹{totalPrice}</p>
+            {orderId && <p>Order ID: <strong>{orderId}</strong></p>}
 
             <img src={qrImage} alt="QR Code" className="cafe-qr-image" />
 

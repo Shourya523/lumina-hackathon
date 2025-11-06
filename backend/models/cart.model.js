@@ -4,7 +4,7 @@ const cartItemSchema = new Schema({
     itemId: {
         type: Schema.Types.ObjectId,
         ref: "MenuItem",
-        required: true
+        required: false // Make itemId optional for frontend orders
     },
     name: {
         type: String,

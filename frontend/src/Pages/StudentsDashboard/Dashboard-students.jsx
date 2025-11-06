@@ -125,10 +125,6 @@ export default function StudentDashboard() {
                         </div>
                     </div>
                 </div>
-                <button className="s-fab-chat-btn" onClick={() => setShowChat(true)}>
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M8 15s1.5-2 4-2 4 2 4 2" /><path d="M9 9h.01" /><path d="M15 9h.01" /></svg>
-                </button>
-                {showChat && <AIChat onClose={() => setShowChat(false)} />}
             </main>
         </div>
     );

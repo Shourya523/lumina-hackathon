@@ -10,6 +10,7 @@ import StudentTimetable from './pages/StudentsDashboard/StudentTimetable.jsx';
 import StudentAttendance from './pages/StudentsDashboard/StudentAttendance.jsx';
 import StudentNotifications from './pages/StudentsDashboard/StudentNotification.jsx';
 import JCafe from './pages/StudentsDashboard/JCafe.jsx';
+import Notes from './Pages/StudentsDashboard/Notes.jsx';
 
 function App() {
   const { currentUser } = useSelector(state => state.user);
@@ -25,6 +26,7 @@ function App() {
 
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/student/notes" element={<Notes />} />
 
       {currentUser ? (
         <Route path="/profile" element={<ProfilePage />} />
