@@ -1,11 +1,13 @@
 :root {
   --bg-dark: #080808;
   --text-light: #fff;
-  --border: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.12);
+  --card-bg: #111;
   --btn-dark: #1c1c1c;
   --accent: #ffffff;
 }
 
+/* PAGE LAYOUT */
 .jcafe-layout {
   display: flex;
   background-color: var(--bg-dark);
@@ -13,40 +15,67 @@
   min-height: 100vh;
 }
 
-.jcafe-content {
-  padding: 24px 32px;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 28px;
-}
-
-.jcafe-menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
-}
-
-.jcafe-item-card {
-  background-color: var(--btn-dark);
-  border: 1px solid var(--border);
-  padding: 18px;
-  border-radius: 12px;
+/* Align with Sidebar */
+.main-content {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  padding: 28px 40px;
+  margin-left: 240px;
+}
+
+/* If Sidebar collapses */
+.sidebar-student.collapsed + .main-content {
+  margin-left: 80px;
+}
+
+/* CONTENT GRID */
+.jcafe-content {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* MENU GRID */
+.jcafe-menu-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* ITEM CARD */
+.jcafe-item-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 22px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease;
+}
+
+.jcafe-item-card:hover {
+  transform: translateY(-2px);
 }
 
 .jcafe-item-card h2 {
-  margin: 0;
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .jcafe-desc {
   font-size: 0.9rem;
   opacity: 0.8;
+  line-height: 1.4;
 }
 
+/* CARD BOTTOM AREA */
 .jcafe-bottom {
   margin-top: auto;
+  margin-top: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,51 +88,117 @@
 
 .jcafe-add-btn {
   background-color: var(--accent);
-  color: black;
+  color: #000;
   border: none;
   padding: 6px 12px;
   border-radius: 50%;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: 0.2s;
 }
 
+.jcafe-add-btn:hover {
+  transform: scale(1.1);
+}
+
+/* CART SECTION */
 .jcafe-cart {
-  background-color: var(--btn-dark);
+  background-color: var(--card-bg);
   border: 1px solid var(--border);
-  padding: 20px;
-  border-radius: 12px;
+  padding: 22px;
+  border-radius: 14px;
+  min-width: 240px;
 }
 
 .jcafe-cart h3 {
-  margin-top: 0;
-  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
 }
 
 .jcafe-cart-item {
-  padding: 4px 0;
+  padding: 6px 0;
+  font-size: 0.95rem;
   border-bottom: 1px solid var(--border);
 }
 
+/* Empty Cart text */
 .jcafe-empty {
-  opacity: 0.5;
   font-size: 0.9rem;
+  opacity: 0.6;
+  padding-top: 8px;
 }
 
+/* ORDER BUTTON */
 .jcafe-order-btn {
-  margin-top: 12px;
+  margin-top: 16px;
   width: 100%;
   background-color: var(--accent);
   color: var(--bg-dark);
   font-weight: 600;
-  padding: 8px;
-  border-radius: 6px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.jcafe-order-btn:hover {
+  background-color: #e2e2e2;
+}
+
+/* ORDER STATUS */
+.jcafe-status {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4ade80;
+  font-weight: 500;
+}
+
+/* POPUP */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-box {
+  background: #111;
+  padding: 28px;
+  border-radius: 14px;
+  width: 320px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.popup-close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: none;
+  color: #ff6b6b;
+  border: none;
   cursor: pointer;
 }
 
-.jcafe-status {
-  margin-top: 14px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  color: #4ade80;
+.qr-image {
+  width: 200px;
+  margin: 18px auto;
+}
+
+.timer {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 600;
 }

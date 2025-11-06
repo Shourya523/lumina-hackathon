@@ -10,14 +10,16 @@ import {
     GraduationCap,
     Bell,
     Coffee,
-    Settings,
     Menu
 } from "lucide-react";
 
-export default function SideBarStudent({ activePage }) {
+export default function SideBarStudent({ activePage = "" }) {
     const navigate = useNavigate();
     const [collapsed, setCollapsed] = useState(false);
     const [lang] = useState("en");
+
+    activePage = activePage.toLowerCase(); // ✅ Ensures matching works consistently
+
     const labels = {
         dashboard: lang === "hi" ? "डैशबोर्ड" : "Dashboard",
         timetable: lang === "hi" ? "समय सारणी" : "Timetable",
@@ -25,17 +27,20 @@ export default function SideBarStudent({ activePage }) {
         attendance: lang === "hi" ? "उपस्थिति" : "Attendance",
         grades: lang === "hi" ? "अंक" : "Grades",
         notifications: lang === "hi" ? "सूचनाएँ" : "Notifications",
-        expand: lang === "hi" ? "विस्तार करें" : "Expand",
-        collapse: lang === "hi" ? "संकुचित करें" : "Collapse",
         studentDashboard: lang === "hi" ? "छात्र डैशबोर्ड" : "Student Dashboard",
         jcafe: lang === "hi" ? "जे कैफे" : "JCafe",
+        expand: lang === "hi" ? "विस्तार करें" : "Expand",
+        collapse: lang === "hi" ? "संकुचित करें" : "Collapse",
         edusync: "EduSync"
     };
+
     const handleNavigate = (path) => {
         navigate(`/student${path}`);
     };
+
     return (
         <aside className={`sidebar-student${collapsed ? ' collapsed' : ''}`}>
+            
             <div className="sidebar-student-header">
                 <div className="logo-sidebar">
                     <LayoutGrid size={24} />
@@ -45,6 +50,7 @@ export default function SideBarStudent({ activePage }) {
                     <span className="header-subtitle">{labels.studentDashboard}</span>
                 </div>
             </div>
+
             <nav className="sidebar-student-nav">
                 <ul>
                     <li className={activePage === 'dashboard' ? 'active' : ''} onClick={() => handleNavigate("-dashboard")}>
@@ -53,37 +59,44 @@ export default function SideBarStudent({ activePage }) {
                             <span className="label">{labels.dashboard}</span>
                         </a>
                     </li>
+
                     <li className={activePage === 'timetable' ? 'active' : ''} onClick={() => handleNavigate("/timetable")}>
                         <a href="#">
                             <CalendarDays size={20} />
                             <span className="label">{labels.timetable}</span>
                         </a>
                     </li>
+
                     <li className={activePage === 'courses' ? 'active' : ''} onClick={() => handleNavigate("/courses")}>
                         <a href="#">
                             <BookOpen size={20} />
                             <span className="label">{labels.courses}</span>
                         </a>
                     </li>
+
                     <li className={activePage === 'attendance' ? 'active' : ''} onClick={() => handleNavigate("/attendance")}>
                         <a href="#">
                             <ClipboardCheck size={20} />
                             <span className="label">{labels.attendance}</span>
                         </a>
                     </li>
+
                     <li className={activePage === 'grades' ? 'active' : ''} onClick={() => handleNavigate("/grades")}>
                         <a href="#">
                             <GraduationCap size={20} />
                             <span className="label">{labels.grades}</span>
                         </a>
                     </li>
+
                     <li className={activePage === 'notifications' ? 'active' : ''} onClick={() => handleNavigate("/notifications")}>
                         <a href="#">
                             <Bell size={20} />
                             <span className="label">{labels.notifications}</span>
                         </a>
                     </li>
-                    <li className={activePage === 'JCafe' ? 'active' : ''} onClick={() => handleNavigate("/JCafe")}>
+
+                    {/* ✅ JCafe highlight fixed */}
+                    <li className={activePage === 'jcafe' ? 'active' : ''} onClick={() => handleNavigate("/jcafe")}>
                         <a href="#">
                             <Coffee size={20} />
                             <span className="label">{labels.jcafe}</span>
@@ -91,12 +104,12 @@ export default function SideBarStudent({ activePage }) {
                     </li>
                 </ul>
             </nav>
+
             <div className="sidebar-student-footer">
                 <button onClick={() => setCollapsed(!collapsed)} aria-label="Toggle sidebar">
                     <Menu size={20} />
                     <span className="label">{collapsed ? labels.expand : labels.collapse}</span>
                 </button>
-
             </div>
         </aside>
     );
