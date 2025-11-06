@@ -1,7 +1,6 @@
 /* Using Google Font 'Geist' to match the dashboard */
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
-/* Root variables from your dashboard theme */
 :root {
     --bg-dark: #080808;
     --text-light: #eeeeee;
