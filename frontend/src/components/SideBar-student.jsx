@@ -67,24 +67,10 @@ export default function SideBarStudent({ activePage = "" }) {
                         </a>
                     </li>
 
-                    <li className={activePage === 'courses' ? 'active' : ''} onClick={() => handleNavigate("/courses")}>
-                        <a href="#">
-                            <BookOpen size={20} />
-                            <span className="label">{labels.courses}</span>
-                        </a>
-                    </li>
-
                     <li className={activePage === 'attendance' ? 'active' : ''} onClick={() => handleNavigate("/attendance")}>
                         <a href="#">
                             <ClipboardCheck size={20} />
                             <span className="label">{labels.attendance}</span>
-                        </a>
-                    </li>
-
-                    <li className={activePage === 'grades' ? 'active' : ''} onClick={() => handleNavigate("/grades")}>
-                        <a href="#">
-                            <GraduationCap size={20} />
-                            <span className="label">{labels.grades}</span>
                         </a>
                     </li>
 
@@ -94,8 +80,6 @@ export default function SideBarStudent({ activePage = "" }) {
                             <span className="label">{labels.notifications}</span>
                         </a>
                     </li>
-
-                    {/* ✅ JCafe highlight fixed */}
                     <li className={activePage === 'jcafe' ? 'active' : ''} onClick={() => handleNavigate("/jcafe")}>
                         <a href="#">
                             <Coffee size={20} />

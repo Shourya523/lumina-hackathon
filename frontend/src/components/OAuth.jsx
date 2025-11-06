@@ -20,6 +20,7 @@ export default function OAuth() {
             const res = await fetch('http://localhost:8000/api/auth/google-signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
+                credentials: 'include', // Add this for cookies
                 body: JSON.stringify({
                     name: result.user.displayName,
                     email: result.user.email,
