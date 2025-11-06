@@ -26,7 +26,7 @@
 
 .body-profile {
   font-family: 'Geist', sans-serif; /* THEME: Changed font */
-  background-image: url('../../public/backgroundProfile-videocon.png');
+  /* background-image: url('../../public/backgroundProfile-videocon.png'); */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
