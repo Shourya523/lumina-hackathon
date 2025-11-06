@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
-/* Root variables from your dashboard theme */
 :root {
     --bg-dark: #080808;
     --text-light: #eeeeee;
@@ -9,7 +8,7 @@
     --btn-light: #ffffff;
     --text-dark: #0f0f0f;
     --danger-red: #E5484D;
-    --text-muted: rgba(238, 238, 238, 0.7); /* Added for muted text */
+    --text-muted: rgba(238, 238, 238, 0.7);
 }
 
 body {
@@ -19,8 +18,8 @@ body {
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--bg-dark); /* Changed from #dee3ee */
-    color: var(--text-light); /* Changed from #333 */
+    background-color: var(--bg-dark);
+    color: var(--text-light);
 }
 
 .signup-container {
@@ -31,13 +30,13 @@ body {
 
 .left-pane {
     width: 50%;
-    background-color: var(--btn-dark); /* Changed from #fff */
+    background-color: var(--btn-dark);
     padding: 3rem 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    /* background-image: url('/signup_image.png'); */
+    background-image: url('/signin-demo.png');
     background-position: center;
     background-repeat: no-repeat;
     max-width: 100%;
@@ -45,7 +44,7 @@ body {
     background-size: cover;
     border-radius: 25px;
     margin: 1em;
-    border: 1px solid var(--border); /* Added for panel consistency */
+    border: 1px solid var(--border);
 }
 
 .logo {
@@ -56,7 +55,7 @@ body {
     align-items: center;
     font-weight: 700;
     font-size: 1.25rem;
-    color: var(--text-light); /* Ensured text is light */
+    color: var(--text-light);
 }
 
 .logo img {
@@ -72,7 +71,7 @@ body {
 .tagline-start {
     font-size: 1rem;
     font-weight: 500;
-    color: var(--text-muted); /* Changed from #555 */
+    color: var(--text-muted);
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -84,7 +83,7 @@ body {
     line-height: 1.2;
     margin: 0;
     margin-bottom: 2rem;
-    color: var(--text-light); /* Ensured text is light */
+    color: var(--text-light);
 }
 
 .dots {
@@ -97,11 +96,11 @@ body {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: var(--border); /* Changed from #e0e0e0 */
+    background-color: var(--border);
 }
 
 .dots span:nth-child(2) {
-    background-color: var(--btn-light); /* Changed from #ff4d4d */
+    background-color: var(--btn-light);
 }
 
 .right-pane {
@@ -123,11 +122,11 @@ body {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: var(--text-light); /* Ensured text is light */
+    color: var(--text-light);
 }
 
 .welcome-subheading {
-    color: var(--text-muted); /* Changed from #666 */
+    color: var(--text-muted);
     margin-bottom: 2rem;
 }
 
@@ -143,23 +142,23 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0.75rem;
-    border: 1px solid var(--border); /* Changed from #e0e0e0 */
+    border: 1px solid var(--border);
     border-radius: 12px;
-    background-color: var(--btn-dark); /* Changed from #fff */
-    color: var(--text-light); /* Added for icon/text */
+    background-color: var(--btn-dark);
+    color: var(--text-light);
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .social-btn:hover {
-    background-color: #2a2a2a; /* Changed from filter */
+    background-color: #2a2a2a;
 }
 
 .separator {
     display: flex;
     align-items: center;
     text-align: center;
-    color: var(--text-muted); /* Changed from #aaa */
+    color: var(--text-muted);
     margin: 1.5rem 0;
 }
 
@@ -167,7 +166,7 @@ body {
 .separator::after {
     content: '';
     flex: 1;
-    border-bottom: 1px solid var(--border); /* Changed from #e0e0e0 */
+    border-bottom: 1px solid var(--border);
 }
 
 .separator span {
@@ -188,17 +187,17 @@ form {
     width: 100%;
     padding: 1rem 3rem;
     border-radius: 12px;
-    border: 1px solid var(--border); /* Changed from none */
-    background-color: var(--btn-dark); /* Changed from #f0f0f0 */
-    color: var(--text-light); /* Added text color */
+    border: 1px solid var(--border);
+    background-color: var(--btn-dark);
+    color: var(--text-light);
     font-size: 1rem;
     box-sizing: border-box;
     transition: border-color 0.2s;
 }
 
 .form-group input:focus {
-    outline: none; /* Changed from blue outline */
-    border-color: var(--text-light); /* Highlight with light border */
+    outline: none;
+    border-color: var(--text-light);
 }
 
 .input-icon {
@@ -207,7 +206,7 @@ form {
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    color: var(--text-muted); /* Added icon color */
+    color: var(--text-muted);
 }
 
 .input-icon-right {
@@ -241,15 +240,15 @@ form {
 }
 
 .google-text {
-    color: var(--text-light); /* Changed from #111827 */
+    color: var(--text-light);
 }
 
 .submit-btn {
     padding: 1rem;
     border: none;
     border-radius: 12px;
-    background-color: var(--btn-light); /* Changed from #4a90e2 */
-    color: var(--text-dark); /* Changed from white */
+    background-color: var(--btn-light);
+    color: var(--text-dark);
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
@@ -257,7 +256,7 @@ form {
 }
 
 .submit-btn:hover {
-    filter: brightness(0.9); /* Changed from #357abd */
+    filter: brightness(0.9);
 }
 
 .submit-btn {
@@ -274,36 +273,36 @@ form {
 .footer-link {
     text-align: center;
     margin-top: 1.5rem;
-    color: var(--text-muted); /* Changed from #666 */
+    color: var(--text-muted);
 }
 
 .footer-link a {
-    color: var(--text-light); /* Changed from #4a90e2 */
+    color: var(--text-light);
     font-weight: 500;
-    text-decoration: underline; /* Changed from none for clarity */
+    text-decoration: underline;
 }
 
 .copyright {
     position: absolute;
     bottom: 2rem;
-    color: var(--text-muted); /* Changed from #aaa */
+    color: var(--text-muted);
     font-size: 0.875rem;
 }
 .signin-page-btn
 {
-    color: var(--text-light); /* Changed from #4a90e2 */
+    color: var(--text-light);
     cursor:pointer;
-    font-weight: 500; /* Added weight */
-    text-decoration: underline; /* Added underline */
+    font-weight: 500;
+    text-decoration: underline;
 }
 .signin-page-btn:hover
 {
-    filter: brightness(0.9); /* Changed from #357abd */
+    filter: brightness(0.9);
     cursor:pointer;
 }
 
 
-/* Responsive Design - No theme changes needed */
+
 @media (max-width: 900px) {
     .signup-container {
         flex-direction: column;
@@ -318,7 +317,7 @@ form {
 
     .left-pane {
         display: none;
-        /* In many mobile views, the illustration pane is hidden */
+        
     }
 
     .right-pane {

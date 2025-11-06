@@ -22,7 +22,6 @@ export default function SignIn() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // setLoading(true);
         try {
             dispatchEvent(signInStart());
             const res = await fetch('http://localhost:8000/api/auth/signin', {

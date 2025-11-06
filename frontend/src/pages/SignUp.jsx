@@ -33,7 +33,6 @@ export default function Signup() {
             setLoading(false);
 
             if (data.success === false) {
-                 // optional: clear form
                  setError(data.message || 'Something went wrong');
                 toast.error(data.message || 'Something went wrong');
             } else {

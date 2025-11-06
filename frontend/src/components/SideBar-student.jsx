@@ -14,7 +14,6 @@ import {
     Menu
 } from "lucide-react";
 
-// Renamed component to avoid conflicts
 export default function SideBarStudent({ activePage }) {
     const navigate = useNavigate();
     const [collapsed, setCollapsed] = useState(false);

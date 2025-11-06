@@ -1,23 +1,18 @@
-/* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
 :root {
-  /* Dark Theme Variables from signin.css */
   --bg-dark: #080808;
   --text-light: #eeeeee;
   --border: rgba(255, 255, 255, 0.1);
-  --btn-dark: #1c1c1c;      /* Used for panels/inputs */
-  --btn-light: #ffffff;     /* Used for primary buttons */
-  --text-dark: #0f0f0f;      /* Used for text on light buttons */
+  --btn-dark: #1c1c1c;
+  --btn-light: #ffffff;
+  --text-dark: #0f0f0f;
   --danger-red: #E5484D;
   --text-muted: rgba(238, 238, 238, 0.7);
-  
-  /* Kept from original for hover effects */
   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* --- Base Reset --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,16 +20,15 @@
 }
 
 .body-profile {
-  font-family: 'Geist', sans-serif; /* THEME: Changed font */
-  /* background-image: url('../../public/backgroundProfile-videocon.png'); */
+  font-family: 'Geist', sans-serif;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  background-color: var(--bg-dark); /* THEME: Added dark bg fallback */
-  color: var(--text-light); /* THEME: Changed base text color */
+  background-color: var(--bg-dark);
+  color: var(--text-light);
 }
 
-/* --- Page Layout --- */
+
 .settings-page-container {
   display: flex;
   justify-content: center;
@@ -48,8 +42,8 @@
   display: flex;
   width: 100%;
   max-width: 1100px;
-  /* THEME: Changed to semi-transparent dark panel */
-  background-color: rgba(28, 28, 28, 1); /* var(--btn-dark) + 92% alpha */
+
+  background-color: rgba(28, 28, 28, 1);
   border-radius: 1.5rem;
   box-shadow: var(--shadow-soft);
   overflow: hidden;
@@ -60,11 +54,11 @@
   box-shadow: var(--shadow-hover);
 }
 
-/* --- Sidebar --- */
+
 .sidebar {
   flex-basis: 280px;
-  background-color: transparent; /* THEME: Sits on container bg */
-  border-right: 1px solid var(--border); /* THEME: Changed border color */
+  background-color: transparent;
+  border-right: 1px solid var(--border);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -83,7 +77,7 @@
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--border); /* THEME: Changed border color */
+  border: 2px solid var(--border);
 }
 
 .sidebar-user-info {
@@ -95,12 +89,12 @@
 .user-name {
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--text-light); /* THEME: Changed text color */
+  color: var(--text-light);
 }
 
 .user-email {
   font-size: 0.85rem;
-  color: var(--text-muted); /* THEME: Changed text color */
+  color: var(--text-muted);
 }
 
 .sidebar-nav ul {
@@ -116,20 +110,20 @@
   margin-bottom: 0.5rem;
   border-radius: 0.6rem;
   text-decoration: none;
-  color: var(--text-muted); /* THEME: Changed default link color */
+  color: var(--text-muted);
   font-weight: 500;
   font-size: 0.95rem;
   transition: all 0.2s ease;
 }
 
 .sidebar-nav li a:hover {
-  background-color: #2a2a2a; /* THEME: Dark hover state */
-  color: var(--text-light); /* THEME: Changed text color */
+  background-color: #2a2a2a;
+  color: var(--text-light); 
 }
 
 .sidebar-nav li a.active {
-  background-color: rgba(238, 238, 238, 0.1); /* THEME: Light tint */
-  color: var(--text-light); /* THEME: Changed text color */
+  background-color: rgba(238, 238, 238, 0.1);
+  color: var(--text-light);
   font-weight: 600;
 }
 
@@ -140,27 +134,27 @@
   padding: 0.5rem 1rem;
   border-radius: 0.6rem;
   text-decoration: none;
-  color: var(--text-muted); /* THEME: Changed text color */
+  color: var(--text-muted); 
   font-weight: 500;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .sidebar-footer span:hover {
-  background-color: rgba(229, 72, 77, 0.15); /* THEME: Red tint */
-  color: var(--danger-red); /* THEME: Red text */
+  background-color: rgba(229, 72, 77, 0.15);
+  color: var(--danger-red);
 }
 
 .sidebar-footer span:hover svg {
-  stroke: var(--danger-red); /* THEME: Make the icon red on hover too */
+  stroke: var(--danger-red);
 }
 
 
-/* --- Main Content --- */
+
 .main-content {
   flex: 1;
   padding: 2.5rem 3.5rem;
-  background-color: transparent; /* THEME: Sits on container bg */
+  background-color: transparent;
   overflow-y: auto;
 }
 
@@ -176,14 +170,14 @@
   margin-bottom: 2.5rem;
 }
 
-/* --- Profile Picture Section --- */
+
 .profile-pic-section {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border); /* THEME: Changed border color */
+  border-bottom: 1px solid var(--border);
 }
 
 .profile-avatar-large {
@@ -191,7 +185,7 @@
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--border); /* THEME: Changed border color */
+  border: 3px solid var(--border);
   box-shadow: var(--shadow-soft);
 }
 
@@ -199,12 +193,12 @@
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
-  color: var(--text-light); /* THEME: Added */
+  color: var(--text-light);
 }
 
 .profile-pic-actions p {
   font-size: 0.9rem;
-  color: var(--text-muted); /* THEME: Changed text color */
+  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
@@ -213,7 +207,7 @@
   gap: 0.75rem;
 }
 
-/* --- Form --- */
+
 .profile-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -233,7 +227,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--text-light); /* THEME: Changed text color */
+  color: var(--text-light);
 }
 
 .input-wrapper {
@@ -245,7 +239,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--text-muted); /* THEME: Changed icon color */
+  color: var(--text-muted);
   width: 20px;
   height: 20px;
 }
@@ -264,11 +258,11 @@
   width: 100%;
   padding: 0.9rem 1rem;
   border: 2px solid transparent;
-  background-color: var(--bg-dark); /* THEME: Dark input bg */
+  background-color: var(--bg-dark);
   border-radius: 0.6rem;
-  font-family: 'Geist', sans-serif; /* THEME: Changed font */
+  font-family: 'Geist', sans-serif;
   font-size: 0.95rem;
-  color: var(--text-light); /* THEME: Light text */
+  color: var(--text-light);
   transition: all 0.2s ease;
 }
 
@@ -279,9 +273,9 @@
 .input-wrapper input:focus,
 .input-wrapper textarea:focus {
   outline: none;
-  background-color: var(--btn-dark); /* THEME: Darker focus bg */
-  border-color: var(--text-light); /* THEME: Light focus border */
-  box-shadow: 0 0 0 3px rgba(238, 238, 238, 0.15); /* THEME: Light focus glow */
+  background-color: var(--btn-dark);
+  border-color: var(--text-light);
+    box-shadow: 0 0 0 3px rgba(238, 238, 238, 0.15);
 }
 
 .input-wrapper textarea {
@@ -290,7 +284,7 @@
   resize: vertical;
 }
 
-/* --- Buttons --- */
+
 .btn {
   padding: 0.7rem 1.25rem;
   border-radius: 0.6rem;
@@ -302,26 +296,26 @@
 }
 
 .btn-primary {
-  background-color: var(--btn-light); /* THEME: Light primary button */
-  color: var(--text-dark); /* THEME: Dark text on light button */
+  background-color: var(--btn-light); 
+  color: var(--text-dark); 
 }
 
 .btn-primary:hover {
-  filter: brightness(0.9); /* THEME: Standard hover effect */
+  filter: brightness(0.9); 
 }
 
 .btn-secondary {
-  background-color: transparent; /* THEME: Ghost button */
-  color: var(--text-light); /* THEME: Light text */
-  border: 1px solid var(--border); /* THEME: Standard border */
+  background-color: transparent;
+  color: var(--text-light);
+  border: 1px solid var(--border);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .btn-secondary:hover {
-  background-color: #2a2a2a; /* THEME: Dark hover */
+  background-color: #2a2a2a;
 }
 
-/* --- Form Actions --- */
+
 .form-actions {
   grid-column: 1 / -1;
   display: flex;
@@ -329,5 +323,5 @@
   gap: 0.75rem;
   margin-top: 1rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--border); /* THEME: Changed border color */
+  border-top: 1px solid var(--border);
 }
