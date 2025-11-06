@@ -1,15 +1,15 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "license": "ISC",
+  "author": "Shourya",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
-  "author": "Shourya",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.1",
     "bcryptjs": "^3.0.2",
@@ -20,5 +20,6 @@
     "mongoose": "^8.19.1",
     "nodemon": "^3.1.10",
     "react-redux": "^9.2.0"
-  }
+  },
+  "devDependencies": {}
 }

@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import { testroute } from './routes/testRoute.js';
 import { userRoute } from './routes/user.route.js';
 import { authRouter } from './routes/auth.route.js';
-import { status } from 'init';
 import cors from 'cors';
 dotenv.config();
 export const app = express();
