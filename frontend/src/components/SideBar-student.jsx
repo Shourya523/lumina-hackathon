@@ -6,6 +6,7 @@ import {
     LayoutDashboard,
     CalendarDays,
     BookOpen,
+    Star,
     ClipboardCheck,
     GraduationCap,
     Bell,
@@ -33,6 +34,7 @@ export default function SideBarStudent({ activePage = "" }) {
         jcafe: lang === "hi" ? "जे कैफे" : "JCafe",
         notes: lang === "hi" ? "नोट्स" : "Notes", // Added Notes label
         support: lang === "hi" ? "सहायता" : "Support", // Added Support label
+        Opportunities: lang === "hi" ? "अवसर" : "Opportunities",
         expand: lang === "hi" ? "विस्तार करें" : "Expand",
         collapse: lang === "hi" ? "संकुचित करें" : "Collapse",
         edusync: "EduSync"
@@ -107,6 +109,12 @@ export default function SideBarStudent({ activePage = "" }) {
                         <a href="#">
                             <LifeBuoy size={20} />
                             <span className="label">{labels.support}</span>
+                        </a>
+                    </li>
+                    <li className={activePage === 'Opportunities' ? 'active' : ''} onClick={() => handleNavigate("/opportunities")}>
+                        <a href="#">
+                            <Star size={20} />
+                            <span className="label">{labels.Opportunities}</span>
                         </a>
                     </li>
                 </ul>

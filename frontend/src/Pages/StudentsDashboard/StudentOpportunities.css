@@ -1,0 +1,117 @@
+.opp-page {
+  padding: 32px;
+  background: #0f0f0f;
+  min-height: 100vh;
+  color: var(--text-light);
+}
+
+.opp-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.opp-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.opp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* --- Opportunity Card --- */
+.opp-card {
+  display: flex;
+  gap: 1rem;
+  background: #0f0f0f;
+  border: 1px solid var(--border);
+  border-left-width: 5px;
+  border-radius: 0.6rem;
+  padding: 1.25rem;
+  box-shadow: 0 2px 12px #0008;
+  transition: 0.25s ease;
+}
+
+.opp-card:hover {
+  background: #23232b;
+  box-shadow: 0 4px 22px #000a;
+}
+
+/* Color coding by type */
+.opp-card.hackathon {
+  border-left-color: #ff9800;
+}
+.opp-card.research {
+  border-left-color: #4caf50;
+}
+.opp-card.assistant {
+  border-left-color: #8ab4f8;
+}
+.opp-card.internship {
+  border-left-color: #ff4d6d;
+}
+
+/* Icon Colors */
+.opp-icon-hackathon {
+  color: #ff9800;
+}
+.opp-icon-research {
+  color: #4caf50;
+}
+.opp-icon-assistant {
+  color: #8ab4f8;
+}
+.opp-icon-internship {
+  color: #ff4d6d;
+}
+
+.opp-card-content {
+  flex: 1;
+}
+
+.opp-content-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.opp-content-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.opp-timestamp {
+  color: #8e9ab3;
+  font-size: 0.85rem;
+}
+
+.opp-message {
+  color: #bdbdbd;
+  margin: 0.3rem 0 1rem;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.opp-card-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.opp-action-btn {
+  border: 1px solid var(--border);
+  background: #18181c;
+  color: var(--text-light);
+  padding: 0.5rem 1.1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.opp-action-btn:hover {
+  background: #ffffff;
+  color: #000;
+  transition: 0.25s;
+}

@@ -7,67 +7,108 @@ import AIChat from '../../components/AiChat';
 
 // --- Mock Data with updated icon class names ---
 const initialStudentNotifications = [
-    {
-        id: 1,
-        type: 'rescheduled',
-        icon: <CalendarClock size={24} className="s-ntf-icon-rescheduled" />,
-        title: 'Class Rescheduled',
-        message: 'Your "Data Structures" class scheduled for Monday 10:00 AM has been moved to Tuesday, 02:00 PM in Room LT-101.',
-        timestamp: '1 hour ago',
-        read: false,
-        actions: ['View Timetable', 'Acknowledge']
-    },
-    {
-        id: 2,
-        type: 'cancelled',
-        icon: <CalendarX2 size={24} className="s-ntf-icon-cancelled" />,
-        title: 'Class Cancelled',
-        message: 'Your "Engineering Mathematics-I" class for tomorrow has been cancelled due to teacher unavailability.',
-        timestamp: '3 hours ago',
-        read: false,
-        actions: ['Acknowledge']
-    },
-    {
-        id: 3,
-        type: 'upcoming',
-        icon: <Timer size={24} className="s-ntf-icon-upcoming" />,
-        title: 'Upcoming Class Reminder',
-        message: 'Your "Algorithms" class is today at 09:59 AM in Room LT-205.',
-        timestamp: 'Just now',
-        read: true, // Reminders can be pre-read
-        actions: ['View Details']
-    },
-    {
-        id: 4,
-        type: 'upcoming',
-        icon: <Timer size={24} className="s-ntf-icon-upcoming" />,
-        title: 'Upcoming Class Reminder',
-        message: 'Your "Operating Systems Lab" starts in 2 hours in CS-Lab-3.',
-        timestamp: '1 hour ago',
-        read: true,
-        actions: ['View Details']
-    },
-    {
-        id: 5,
-        type: 'info',
-        icon: <Megaphone size={24} className="s-ntf-icon-info" />,
-        title: 'Campus Announcement',
-        message: "The annual tech fest 'Innovate 2025' registrations are now open. Don't miss out!",
-        timestamp: '1 day ago',
-        read: false,
-        actions: ['Learn More']
-    },
-    {
-        id: 6,
-        type: 'upcoming',
-        icon: <Timer size={24} className="s-ntf-icon-upcoming" />,
-        title: 'Upcoming Class Reminder',
-        message: 'Your "Database Management" class is tomorrow at 09:00 AM.',
-        timestamp: '1 day ago',
-        read: true,
-        actions: ['View Details']
-    },
+  {
+    id: 1,
+    type: "upcoming",
+    icon: <Timer size={24} className="s-ntf-icon-upcoming" />,
+    title: "Upcoming Class Reminder",
+    message: 'Your "Computer Networks" class starts in 30 minutes in LT-204.',
+    timestamp: "Just now",
+    read: false,
+    actions: ["View Details"]
+  },
+  {
+    id: 2,
+    type: "info",
+    icon: <Megaphone size={24} className="s-ntf-icon-info" />,
+    title: "IEEE Hackathon Registrations Open",
+    message: "Team up and participate in the Annual National IEEE Hackathon. Win exciting prizes!",
+    timestamp: "2 hours ago",
+    read: false,
+    actions: ["Learn More", "Register"]
+  },
+  {
+    id: 3,
+    type: "rescheduled",
+    icon: <CalendarClock size={24} className="s-ntf-icon-rescheduled" />,
+    title: "Class Rescheduled",
+    message: 'Your "Database Systems" class has been moved to Thursday 11:30 AM.',
+    timestamp: "4 hours ago",
+    read: false,
+    actions: ["View Timetable", "Acknowledge"]
+  },
+  {
+    id: 4,
+    type: "cancelled",
+    icon: <CalendarX2 size={24} className="s-ntf-icon-cancelled" />,
+    title: "Lab Session Cancelled",
+    message: 'Your "Graphics Lab" scheduled today is cancelled due to technical maintenance.',
+    timestamp: "6 hours ago",
+    read: false,
+    actions: ["Acknowledge"]
+  },
+  {
+    id: 5,
+    type: "info",
+    icon: <Megaphone size={24} className="s-ntf-icon-info" />,
+    title: "Library Due Reminder",
+    message: "You have 2 books that are due for return tomorrow. Avoid late fee charges.",
+    timestamp: "1 day ago",
+    read: true,
+    actions: ["View Details"]
+  },
+  {
+    id: 6,
+    type: "upcoming",
+    icon: <Timer size={24} className="s-ntf-icon-upcoming" />,
+    title: "Exam Schedule Released",
+    message: "Final semester exam timetable is now available on the student portal.",
+    timestamp: "1 day ago",
+    read: true,
+    actions: ["View Details"]
+  },
+  {
+    id: 7,
+    type: "info",
+    icon: <Megaphone size={24} className="s-ntf-icon-info" />,
+    title: "Placement Assistance Workshop",
+    message: "A resume & interview training workshop will be conducted this Friday in Auditorium.",
+    timestamp: "2 days ago",
+    read: false,
+    actions: ["Register"]
+  },
+  {
+    id: 8,
+    type: "upcoming",
+    icon: <Timer size={24} className="s-ntf-icon-upcoming" />,
+    title: "Sports Meet Selections",
+    message: "Basketball & Athletics team tryouts are scheduled for Saturday.",
+    timestamp: "3 days ago",
+    read: true,
+    actions: ["View Details"]
+  },
+  {
+    id: 9,
+    type: "info",
+    icon: <Megaphone size={24} className="s-ntf-icon-info" />,
+    title: "Hostel Mess Menu Update",
+    message: "New weekly mess menu has been released and will be effective starting Monday.",
+    timestamp: "3 days ago",
+    read: false,
+    actions: ["Learn More"]
+  },
+  {
+    id: 10,
+    type: "cancelled",
+    icon: <CalendarX2 size={24} className="s-ntf-icon-cancelled" />,
+    title: "Guest Lecture Cancelled",
+    message: "The guest lecture on Quantum Computing has been postponed.",
+    timestamp: "4 days ago",
+    read: true,
+    actions: ["Acknowledge"]
+  }
 ];
+
 
 // Hindi translations for notification types/actions
 const hiText = {
