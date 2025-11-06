@@ -1,0 +1,294 @@
+/* Using Google Font 'Geist' to match the dashboard */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+/* Root variables from your dashboard theme */
+:root {
+    --bg-dark: #080808;
+    --text-light: #eeeeee;
+    --border: rgba(255, 255, 255, 0.1);
+    --btn-dark: #1c1c1c;
+    --btn-light: #ffffff;
+    --text-dark: #0f0f0f;
+    --danger-red: #E5484D;
+    --text-muted: rgba(238, 238, 238, 0.7); /* Added for muted text */
+}
+
+body {
+    margin: 0;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.signup-container-signin {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Left Pane (Image/Brand side) */
+.left-pane-signin {
+    width: 50%;
+    background-color: var(--btn-dark); /* Changed from #fff to dark panel bg */
+    padding: 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    /* background-image: url('/signin-page-image.png'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid var(--border); /* Added border to match panel style */
+    border-radius: 25px;
+    margin: 1em;
+    order: 2;
+}
+
+.logo-signin {
+    position: absolute;
+    top: 3rem;
+    left: 4rem;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-light); /* Ensure logo text is light */
+}
+
+.logo-signin img {
+    width: 28px;
+    height: 28px;
+    margin-right: 0.5rem;
+}
+
+.illustration-container-signin {
+    text-align: center;
+}
+
+.tagline-start-signin {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-muted); /* Changed from #555 */
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.main-heading-signin {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
+    margin-bottom: 2rem;
+    color: var(--text-light); /* Ensure text is light */
+}
+
+.dots-signin {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.dots-signin span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--border); /* Changed from #e0e0e0 */
+}
+
+.dots-signin span:nth-child(2) {
+    background-color: var(--btn-light); /* Changed from red to light */
+}
+
+/* Right Pane (Form side) */
+.right-pane-signin {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    position: relative;
+    order: 1;
+}
+
+.form-container-signin {
+    width: 100%;
+    max-width: 380px;
+}
+
+.welcome-heading-signin {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-light); /* Ensure text is light */
+}
+
+.welcome-subheading-signin {
+    color: var(--text-muted); /* Changed from #666 */
+    margin-bottom: 2rem;
+}
+
+/*
+ * REMOVED .social-buttons-signin and .social-btn-signin
+ * These styles are now correctly handled by oauth.css
+*/
+
+.separator-signin {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-muted); /* Changed from #aaa */
+    margin: 1.5rem 0;
+}
+
+.separator-signin::before,
+.separator-signin::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border); /* Changed from #e0e0e0 */
+}
+
+.separator-signin span {
+    padding: 0 1rem;
+}
+
+form-signin { /* Note: This might need to be 'form.form-signin' or just 'form' depending on your HTML */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group-signin {
+    position: relative;
+}
+
+.form-group-signin input {
+    width: 100%;
+    padding: 1rem 3rem;
+    border-radius: 12px;
+    border: 1px solid var(--border); /* Changed from none */
+    background-color: var(--btn-dark); /* Changed from #f0f0f0 */
+    color: var(--text-light); /* Added text color */
+    font-size: 1rem;
+    box-sizing: border-box; /* Good practice */
+    transition: border-color 0.2s;
+}
+
+.form-group-signin input:focus {
+    outline: none; /* Removed default outline */
+    border-color: var(--text-light); /* Highlight with light border */
+}
+
+.input-icon-signin {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-muted); /* Set icon color */
+}
+
+.input-icon-right-signin {
+    position: absolute;
+    right: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-muted); /* Set icon color */
+}
+
+/*
+ * REMOVED .google-btn-signin, .google-logo-signin,
+ * and .google-text-signin.
+ * These styles are now correctly handled by oauth.css
+*/
+
+/* Primary submit button, themed like a light CTA */
+.submit-btn-signin {
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--btn-light); /* Changed from blue */
+    color: var(--text-dark); /* Changed from white */
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: filter 0.2s;
+    width: 100%;
+}
+
+.submit-btn-text-signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.submit-btn-signin:hover {
+    filter: brightness(0.9);
+}
+
+.footer-link-signin {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-muted); /* Changed from #666 */
+}
+
+.footer-link-signin a {
+    color: var(--text-light); /* Changed from blue */
+    font-weight: 500;
+    text-decoration: underline; /* Added underline for clarity */
+}
+
+.copyright-signin {
+    position: absolute;
+    bottom: 2rem;
+    color: var(--text-muted); /* Changed from #aaa */
+    font-size: 0.875rem;
+}
+
+.signin-page-btn-signin {
+    color: var(--text-light); /* Changed from blue */
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* .signin-page-btn-signin:hover {
+    filter: brightness(0.9);
+} */
+
+/* Mobile responsive styles, logic is unchanged */
+@media (max-width: 900px) {
+    .signup-container-signin {
+        flex-direction: column;
+    }
+
+    .left-pane-signin,
+    .right-pane-signin {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 2rem;
+    }
+
+    .left-pane-signin {
+        display: none; /* This was in your original code */
+    }
+
+    .right-pane-signin {
+        justify-content: flex-start;
+        min-height: 100vh;
+    }
+
+    .copyright-signin {
+        position: relative;
+        margin-top: 2rem;
+        bottom: auto;
+    }
+}
