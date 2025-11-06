@@ -3,7 +3,7 @@ import "./StudentSupport.css";
 import SideBarStudent from "../../components/SideBar-student";
 import Header from "../../components/Header";
 import { MessageSquare, CheckCircle, Clock, Send } from "lucide-react";
-
+//sample data
 const initialComplaints = [
   {
     id: 1,
