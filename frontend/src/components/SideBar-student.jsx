@@ -39,10 +39,10 @@ export default function SideBarStudent({ activePage }) {
         <aside className={`sidebar-student${collapsed ? ' collapsed' : ''}`}>
             <div className="sidebar-student-header">
                 <div className="logo-sidebar">
-                    <Coffee size={24} />
+                    <LayoutGrid size={24} />
                 </div>
                 <div className="header-text">
-                    <span className="header-title">{labels.jcafe}</span>
+                    <span className="header-title">{labels.dashboard}</span>
                     <span className="header-subtitle">{labels.studentDashboard}</span>
                 </div>
             </div>

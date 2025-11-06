@@ -26,7 +26,7 @@ export default function TopBar() {
 
                 </button>
                 <button className="sd-btn sign-in" onClick={handleSignIn}>Sign In</button>
-                <button className="sd-btn get-started" onClick={()=>navigate("/register")}>Get Started</button>
+                <button className="sd-btn get-started" onClick={()=>navigate("/signUp")}>Get Started</button>
             </div>
         </header>
     );

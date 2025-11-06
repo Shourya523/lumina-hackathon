@@ -3,7 +3,7 @@ import ProfilePage from './pages/ProfilePage.jsx'
 import SignIn from './pages/SignIn.jsx'
 import { useSelector } from 'react-redux'
 import './index.css'
-import HomePage from './pages/HomePage/HomePage'
+import HomePage from './pages/HomePage/HomePage.jsx';
 import { Routes, Route } from "react-router-dom";
 import StudentDashboard from './pages/StudentsDashboard/Dashboard-students.jsx';
 import StudentTimetable from './pages/StudentsDashboard/StudentTimetable.jsx';
