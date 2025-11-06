@@ -1,34 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Home } from 'lucide-react'
+import HomePage from './Pages/HomePage/HomePage'
+import './index.css'
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import StudentDashboard from './Pages/StudentsDashboard/Dashboard-students.jsx';
+import StudentTimetable from './Pages/StudentsDashboard/StudentTimetable.jsx';
+import StudentAttendance from './Pages/StudentsDashboard/StudentAttendance.jsx';
+import StudentNotifications from './Pages/StudentsDashboard/StudentNotification.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/student-dashboard' element={<StudentDashboard />} />
+
+        <Route path='student/timetable' element={<StudentTimetable />} />
+        <Route path='student/attendance' element={<StudentAttendance />} />
+        <Route path='student/notifications' element={<StudentNotifications />} />
+
+      </Routes>
+    </BrowserRouter>
   )
 }
 

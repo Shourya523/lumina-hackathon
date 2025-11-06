@@ -10,11 +10,11 @@ import {
     CalendarDays,
     Users,
     Clock,
-    Shield,
+    Shield, // Shield is now unused, but I'll leave the import
     Zap,
     XCircle
 } from "lucide-react";
-import DisclaimerPopup from '../../components/Disclaimer.jsx';
+
 
 
 export default function HomePage() {
@@ -26,79 +26,79 @@ export default function HomePage() {
     }, []);
     return (
         <>
-        <DisclaimerPopup />
             {/* Hero Section */}
             <section className="hero">
                 <TopBar />
-                <div className={`hero-badge fade-up${fade ? ' visible' : ''}`}>AI-Powered Academic Scheduling</div>
+                <div className={`hero-badge fade-up${fade ? ' visible' : ''}`}>The Complete Campus Platform</div>
                 <div className={`hero-title fade-up${fade ? ' visible' : ''}`}>
-                    Smart Timetables <br /> for Modern Universities
+                    Administrative Clarity. <br /> Student Simplicity.
                 </div>
                 <p className={`hero-subtext fade-up${fade ? ' visible' : ''}`}>
-                    Transform your academic scheduling with EduSync's intelligent AI
-                    system. Optimize faculty workloads, maximize classroom utilization, and
-                    eliminate scheduling conflicts automatically.
+                    EduSync connects your entire campus. We solve the daily grind
+                    with a **Smart Canteen** and fix the administrative backlog with an
+                    **Intelligent AI Scheduling System**—the "brain" that unifies
+                    the entire student experience.
                 </p>
                 <div className={`hero-actions fade-up${fade ? ' visible' : ''}`}>
                     <button className="btn btn-primary-home" onClick={()=>navigate("/register")}> 
                         Start Free Trial <ArrowRight size={16} />
                     </button>
-                    <button className="btn btn-secondary-demo-dashboard" onClick={()=>navigate("/roles")}>View Demo Dashboard</button>
+                    <button className="btn btn-secondary-demo-dashboard" onClick={()=>navigate("/student-dashboard")}>View Demo Dashboard</button>
                 </div>
             </section>
 
-            {/* Intelligent Academic Management Section */}
+            {/* Intelligent Academic Management Section (Now Smart Canteen) */}
             <section className="features-section">
                 <div className="features-container">
                     <div className={`features-content fade-up${fade ? ' visible' : ''}`}>
-                        <h2>Intelligent Academic Management</h2>
+                        <h2>Fixing the Daily Grind</h2>
                         <p>
-                            EduSync revolutionizes university scheduling with advanced AI
-                            algorithms that understand the complexities of academic
-                            environments. Our platform seamlessly integrates with your existing
-                            systems to provide real-time optimization and conflict resolution.
+                            We begin by tackling the most visible daily frustration:
+                            the queue. Our **Smart Canteen** module allows students to
+                            pre-order and pay directly from their phones, eliminating
+                            wait times and streamlining campus life from day one.
                         </p>
                         <ul className="features-list">
                             <li>
                                 <CheckCircle size={20} className="feature-icon" />
-                                Automated conflict detection and resolution
+                                Seamless pre-ordering and mobile payments
                             </li>
                             <li>
                                 <CheckCircle size={20} className="feature-icon" />
-                                Real-time faculty workload balancing
+                                Real-time notifications when orders are ready
                             </li>
                             <li>
                                 <CheckCircle size={20} className="feature-icon" />
-                                Optimal classroom and resource allocation
+                                Powered by the same core system as your timetable
                             </li>
                         </ul>
                     </div>
                     <div className={`features-dashboard-home fade-up${fade ? ' visible' : ''}`}>
                         <div className="dashboard-header">
-                            <BarChart size={18} />
-                            <span>Live Analytics Dashboard</span>
+                            <Zap size={18} />
+                            <span>Smart Canteen Portal</span>
                         </div>
                         <div className="dashboard-metric">
                             <div className="metric-info">
-                                <span>Classroom Utilization</span>
-                                <span>87%</span>
+                                <span>Orders Processed Today</span>
+                                <span>1,245</span>
                             </div>
                             <div className="progress-bar-container">
                                 <div
                                     className="progress-bar"
-                                    style={{ width: "87%" }}
+                                    style={{ width: "78%" }}
                                 ></div>
                             </div>
                         </div>
                         <div className="dashboard-metric">
                             <div className="metric-info">
-                                <span>Faculty Satisfaction</span>
-                                <span>94%</span>
+                                <span>Average Wait Time Saved</span>
+                                <span>~15min / student</span>
                             </div>
                             <div className="progress-bar-container">
                                 <div
                                     className="progress-bar"
-                                    style={{ width: "94%" }}
+                                    style={{ width: "95%" }}
                                 ></div>
                             </div>
                         </div>
@@ -106,82 +106,90 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* --- NEW: Powerful Features Grid Section --- */}
+            {/* --- Powerful Features Grid Section --- */}
             <section className="grid-features-section">
                 <div className="grid-features-header fade-up visible">
-                    <h2>Powerful Features for Academic Excellence</h2>
+                    <h2>One Platform, Endless Connections</h2>
                     <p>
-                        Comprehensive tools designed specifically for the unique challenges
-                        of university scheduling
+                        Our AI scheduling "brain" is the foundation that
+                        connects every part of the student and faculty experience.
                     </p>
                 </div>
                 <div className="features-grid">
                     {/* Card 1 */}
                     <div className={`feature-card fade-up${fade ? ' visible' : ''}`}>
                         <BrainCircuit size={28} className="card-icon" />
-                        <h3>AI-Powered Optimization</h3>
+                        <h3>Intelligent AI Scheduling</h3>
                         <p>
-                            Advanced machine learning algorithms automatically optimize
-                            schedules for maximum efficiency
+                            The "brain" that optimizes schedules, faculty, and
+                            classrooms, serving as the single source of truth.
                         </p>
                     </div>
                     {/* Card 2 */}
                     <div className={`feature-card fade-up${fade ? ' visible' : ''}`}>
                         <CalendarDays size={28} className="card-icon" />
-                        <h3>Smart Timetable Generation</h3>
+                        <h3>Unified Dashboard</h3>
                         <p>
-                            Generate conflict-free timetables in minutes, not hours, with
-                            intelligent constraint handling
+                            A single view of your personal schedule, tasks,
+                            attendance, and all important campus updates.
                         </p>
                     </div>
                     {/* Card 3 */}
                     <div className={`feature-card fade-up${fade ? ' visible' : ''}`}>
                         <Users size={28} className="card-icon" />
-                        <h3>Faculty Management</h3>
+                        <h3>Seamless Attendance</h3>
                         <p>
-                            Balance workloads, track preferences, and ensure fair distribution
-                            of teaching responsibilities
+                            Attendance is tracked seamlessly and integrated
+                            directly into your academic profile and dashboard.
                         </p>
                     </div>
                     {/* Card 4 */}
                     <div className={`feature-card fade-up${fade ? ' visible' : ''}`}>
-                        <Clock size={28} className="card-icon" />
-                        <h3>Real-Time Updates</h3>
+                        <BarChart size={28} className="card-icon" />
+                        <h3>Notes Hub</h3>
                         <p>
-                            Instant notifications and automatic adjustments when changes occur
-                            in your schedule
+                            Organizes all your class resources, materials, and
+                            notes, directly linked to your personal timetable.
                         </p>
                     </div>
                     {/* Card 5 */}
                     <div className={`feature-card fade-up${fade ? ' visible' : ''}`}>
-                        <Shield size={28} className="card-icon" />
-                        <h3>Secure & Compliant</h3>
+                        <Clock size={28} className="card-icon" />
+                        <h3>Real-Time Notifications</h3>
                         <p>
-                            Enterprise-grade security with full compliance to educational
-                            data protection standards
+                            Get updates on everything from class changes to when
+                            your canteen order is ready to be picked up.
                         </p>
                     </div>
                     {/* Card 6 */}
                     <div className={`feature-card fade-up${fade ? ' visible' : ''}`}>
                         <Zap size={28} className="card-icon" />
-                        <h3>Lightning Fast</h3>
+                        <h3>Smart Canteen</h3>
                         <p>
-                            Process complex scheduling requirements in seconds with our
-                            optimized algorithms
+                            The first step to a better day. Pre-order and pay
+                            from your phone, eliminating queues entirely.
                         </p>
                     </div>
                 </div>
-                {/* --- NEW: Comparison Section --- */}
+                {/* --- Comparison Section --- */}
                 <section className="comparison-section">
                     <h2 className="fade-up visible">From Chaos to Clarity</h2>
                     <div className="comparison-container">
                         {/* Problems Card */}
                         <div className={`comparison-card problems-card fade-up${fade ? ' visible' : ''}`}>
-                            <h3>Traditional Scheduling Problems</h3>
+                            <h3>Traditional Campus Chaos</h3>
                             <ul>
                                 <li>
                                     <XCircle size={20} className="icon-problem" />
-                                    Manual conflict resolution takes weeks
+                                    Long canteen queues & wasted time
+                                </li>
+                                <li>
+                                    <XCircle size={20} className="icon-problem" />
+                                    Manual scheduling conflicts take weeks
+                                </li>
+                                <li>
+                                    <XCircle size={20} className="icon-problem" />
+                                    Disorganized notes and class resources
                                 </li>
                                 <li>
                                     <XCircle size={20} className="icon-problem" />
@@ -189,34 +197,34 @@ export default function HomePage() {
                                 </li>
                                 <li>
                                     <XCircle size={20} className="icon-problem" />
-                                    Poor classroom utilization
-                                </li>
-                                <li>
-                                    <XCircle size={20} className="icon-problem" />
-                                    Last-minute schedule changes cause chaos
+                                    Students miss important updates
                                 </li>
                             </ul>
                         </div>
 
                         {/* Solutions Card */}
                         <div className={`comparison-card solutions-card fade-up${fade ? ' visible' : ''}`}>
-                            <h3>EduSync Solutions</h3>
+                            <h3>The EduSync Solution</h3>
                             <ul>
                                 <li>
                                     <CheckCircle size={20} className="icon-solution" />
-                                    Automated conflict resolution in minutes
+                                    Queue-free canteen with mobile pre-ordering
                                 </li>
                                 <li>
                                     <CheckCircle size={20} className="icon-solution" />
-                                    AI-balanced faculty workload distribution
+                                    Automated, conflict-free scheduling in minutes
                                 </li>
                                 <li>
                                     <CheckCircle size={20} className="icon-solution" />
-                                    Optimized classroom and resource usage
+                                    Centralized Notes Hub tied to your schedule
                                 </li>
                                 <li>
                                     <CheckCircle size={20} className="icon-solution" />
-                                    Real-time adaptation to changes
+                                    AI-balanced faculty & resource allocation
+                                </li>
+                                <li>
+                                    <CheckCircle size={20} className="icon-solution" />
+                                    Instant notifications for classes & canteen
                                 </li>
                             </ul>
                         </div>
@@ -224,16 +232,16 @@ export default function HomePage() {
                 </section>
             </section>
             <section className="cta-section">
-                <h2 className="fade-up visible">Ready to Transform Your Scheduling?</h2>
+                <h2 className="fade-up visible">Ready to Unify Your Campus?</h2>
                 <p className="fade-up visible">
-                    Join hundreds of universities already using EduSync to streamline
-                    their academic operations
+                    Join progressive campuses using EduSync to solve administrative
+                    backlogs and the student's daily chaos.
                 </p>
                 <div className={`cta-actions fade-up${fade ? ' visible' : ''}`}>
-                    <button className="btn btn-cta-primary">
+                    <button className="btn btn-cta-primary" onClick={()=>navigate("/register")}>
                         Start Your Free Trial <ArrowRight size={16} />
                     </button>
-                    <button className="btn btn-cta-secondary">
+                    <button className="btn btn-cta-secondary" onClick={()=>navigate("/login")}>
                         Sign In to Dashboard
                     </button>
                 </div>

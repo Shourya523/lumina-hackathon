@@ -28,6 +28,7 @@ export default function SideBarStudent({ activePage }) {
         expand: lang === "hi" ? "विस्तार करें" : "Expand",
         collapse: lang === "hi" ? "संकुचित करें" : "Collapse",
         studentDashboard: lang === "hi" ? "छात्र डैशबोर्ड" : "Student Dashboard",
+        jcafe: lang === "hi" ? "जे कैफे" : "JCafe",
         edusync: "EduSync"
     };
     const handleNavigate = (path) => {
@@ -80,6 +81,12 @@ export default function SideBarStudent({ activePage }) {
                         <a href="#">
                             <Bell size={20} />
                             <span className="label">{labels.notifications}</span>
+                        </a>
+                    </li>
+                    <li className={activePage === 'JCafe' ? 'active' : ''} onClick={() => handleNavigate("/JCafe")}>
+                        <a href="#">
+                            <Bell size={20} />
+                            <span className="label">{labels.jcafe}</span>
                         </a>
                     </li>
                 </ul>

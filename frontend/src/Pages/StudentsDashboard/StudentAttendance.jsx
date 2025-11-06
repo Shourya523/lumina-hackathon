@@ -9,7 +9,7 @@ import AIChat from '../../components/AiChat.jsx';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler);
 
-// --- MOCK DATA ---
+// --- MOCK DATA (Updated for Nov 6, 2025) ---
 const attendanceData = [
     { code: 'CS-501', name: 'Computer Networks', totalClasses: 50, attendedClasses: 45 },
     { code: 'CS-502', name: 'Theory of Computation', totalClasses: 48, attendedClasses: 42 },
@@ -17,26 +17,27 @@ const attendanceData = [
 ];
 
 const dayToDayData = {
-    '2025-09-24': [
-        { name: 'Computer Networks (CS-501)', time: '09:00AM - 09:50 AM', status: 'Present' },
-        { name: 'Compiler Design (CS-503)', time: '11:00AM - 11:50 AM', status: 'Present' },
+    '2025-11-05': [
+        { name: 'Compiler Design (CS-503)', time: '11:00AM - 11:50 AM', status: 'Absent' },
     ],
-    '2025-09-25': [
-        { name: 'Theory of Computation (CS-502)', time: '10:00AM - 10:50 AM', status: 'Absent' },
+    '2025-11-06': [
+        { name: 'Computer Networks (CS-501)', time: '09:00AM - 09:50 AM', status: 'Present' },
+        { name: 'Theory of Computation (CS-502)', time: '10:00AM - 10:50 AM', status: 'Present' },
     ],
 };
 
 const courseSpecificAttendance = {
-    'CS-501': { '2025-09-01': 'Present', '2025-09-03': 'Present', '2025-09-05': 'Present', '2025-09-08': 'Present', '2025-09-10': 'Present', '2025-09-12': 'Absent', '2025-09-15': 'Present', '2025-09-17': 'Present', '2025-09-19': 'Present', '2025-09-22': 'Present', '2025-09-24': 'Present', },
-    'CS-502': { '2025-09-02': 'Present', '2025-09-04': 'Present', '2025-09-09': 'Absent', '2025-09-11': 'Present', '2025-09-16': 'Present', '2025-09-18': 'Present', '2025-09-23': 'Present', '2025-09-25': 'Absent', },
-    'CS-503': { '2025-09-02': 'Present', '2025-09-04': 'Present', '2025-09-09': 'Present', '2025-09-11': 'Present', '2025-09-16': 'Present', '2025-09-18': 'Present', '2025-09-23': 'Absent', '2025-09-25': 'Absent', '2025-09-30': 'Present' }
+    'CS-501': { '2025-10-01': 'Present', '2025-10-03': 'Present', '2025-10-06': 'Present', '2025-10-08': 'Present', '2025-10-10': 'Present', '2025-10-13': 'Absent', '2025-10-15': 'Present', '2025-10-17': 'Present', '2025-10-20': 'Present', '2025-10-22': 'Present', '2025-10-24': 'Present', '2025-10-27': 'Present', '2025-10-29': 'Present', '2025-10-31': 'Present', '2025-11-03': 'Present', '2025-11-06': 'Present', },
+    'CS-502': { '2025-10-02': 'Present', '2025-10-07': 'Present', '2025-10-09': 'Absent', '2025-10-14': 'Present', '2025-10-16': 'Present', '2025-10-21': 'Present', '2025-10-23': 'Present', '2025-10-28': 'Present', '2025-10-30': 'Absent', '2025-11-04': 'Present', '2025-11-06': 'Present', },
+    'CS-503': { '2025-10-02': 'Present', '2025-10-07': 'Present', '2025-10-09': 'Present', '2025-10-14': 'Present', '2025-10-16': 'Present', '2025-10-21': 'Present', '2025-10-23': 'Absent', '2025-10-28': 'Absent', '2025-10-30': 'Present', '2025-11-04': 'Present', '2025-11-05': 'Absent' }
 };
 
 const courseChartData = {
-    'CS-501': { labels: ['25/07', '01/08', '08/08', '14/08', '22/08', '29/08', '05/09', '12/09', '19/09', '25/09'], values: [100, 100, 100, 95, 92, 94, 95, 90, 91, 90] },
-    'CS-502': { labels: ['26/07', '02/08', '09/08', '16/08', '23/08', '30/08', '06/09', '13/09', '20/09', '26/09'], values: [100, 100, 91, 92, 93, 90, 85, 86, 87, 84] },
-    'CS-503': { labels: ['25/07', '31/07', '06/08', '08/08', '13/08', '14/08', '20/08', '21/08', '27/08', '28/08', '10/09', '12/09', '17/09', '18/09', '20/09', '24/09', '25/09'], values: [100, 100, 100, 100, 100, 95, 88, 77, 81, 70, 72, 75, 76, 78, 77, 71] }
+    'CS-501': { labels: ['03/09', '10/09', '17/09', '24/09', '01/10', '08/10', '15/10', '22/10', '29/10', '05/11'], values: [100, 100, 100, 95, 92, 94, 95, 90, 91, 90] },
+    'CS-502': { labels: ['04/09', '11/09', '18/09', '25/09', '02/10', '09/10', '16/10', '23/10', '30/10', '06/11'], values: [100, 100, 91, 92, 93, 90, 85, 86, 87, 84] },
+    'CS-503': { labels: ['04/09', '11/09', '18/09', '25/09', '02/10', '09/10', '16/10', '23/10', '30/10', '05/11'], values: [100, 95, 90, 88, 85, 82, 80, 75, 70, 68] }
 };
+// --- END OF MOCK DATA ---
 
 const calculatePercentage = (attended, total) => {
     return total === 0 ? 0 : Math.round((attended / total) * 100);
@@ -60,7 +61,8 @@ const CircularProgress = ({ percentage }) => {
 
 // --- Calendar Component for Day-to-Day tab ---
 const Calendar = ({ selectedDate, setSelectedDate }) => {
-    const [currentMonth, setCurrentMonth] = useState(new Date(2025, 8, 1));
+    // UPDATED: Default month is now November 2025 (month 10)
+    const [currentMonth, setCurrentMonth] = useState(new Date(2025, 10, 1));
     const renderHeader = () => (<div className="calendar-header"><button onClick={() => setCurrentMonth(new Date(currentMonth.setMonth(currentMonth.getMonth() - 1)))}><ChevronLeft size={20} /></button><span>{new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(currentMonth)}</span><button onClick={() => setCurrentMonth(new Date(currentMonth.setMonth(currentMonth.getMonth() + 1)))}><ChevronRight size={20} /></button></div>);
     const renderDays = () => (<div className="calendar-days">{['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => <div key={day}>{day}</div>)}</div>);
     const renderCells = () => {
@@ -89,7 +91,8 @@ const AttendanceChart = ({ data }) => {
 };
 
 const DetailCalendar = ({ attendance }) => {
-    const [currentMonth] = useState(new Date(2025, 8, 1));
+    // UPDATED: Default month is now November 2025 (month 10)
+    const [currentMonth] = useState(new Date(2025, 10, 1));
     const renderHeader = () => (<div className="calendar-header"><button disabled><ChevronLeft size={20} /></button><span>{new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(currentMonth)}</span><button disabled><ChevronRight size={20} /></button></div>);
     const renderDays = () => (<div className="calendar-days">{['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => <div key={day}>{day}</div>)}</div>);
     const renderCells = () => {
@@ -127,7 +130,8 @@ const CourseDetailView = ({ course, onBack, lang }) => {
 
 export default function StudentAttendance() {
     const [activeTab, setActiveTab] = useState('overview');
-    const [selectedDate, setSelectedDate] = useState('2025-09-25');
+    // UPDATED: Default selected date is now Nov 6, 2025
+    const [selectedDate, setSelectedDate] = useState('2025-11-06');
     const [selectedCourse, setSelectedCourse] = useState(null);
     const todaysClasses = dayToDayData[selectedDate] || [];
     const [showChat, setShowChat] = useState(false);
@@ -164,7 +168,6 @@ export default function StudentAttendance() {
                                             const percentage = calculatePercentage(course.attendedClasses, course.totalClasses);
                                             const neededClasses = Math.ceil(course.totalClasses * 0.75) - course.attendedClasses;
                                             return (
-                                                // ***** THIS IS THE CORRECTED CODE BLOCK *****
                                                 <div key={idx} className="attendance-list-item" onClick={() => setSelectedCourse(course)}>
                                                     <div className="course-details">
                                                         <span className="course-name">{course.name}</span>
@@ -184,7 +187,6 @@ export default function StudentAttendance() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                // ***** END OF CORRECTED CODE BLOCK *****
                                             );
                                         })}
                                     </div>
