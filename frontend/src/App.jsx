@@ -1,34 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Signup from './pages/SignUp.jsx'
+import ProfilePage from './pages/ProfilePage.jsx'
+import SignIn from './pages/SignIn.jsx'
+import { useSelector } from 'react-redux'
+import './index.css'
+import HomePage from './pages/HomePage/HomePage.jsx';
+import { Routes, Route } from "react-router-dom";
+import StudentDashboard from './pages/StudentsDashboard/Dashboard-students.jsx';
+import StudentTimetable from './pages/StudentsDashboard/StudentTimetable.jsx';
+import StudentAttendance from './pages/StudentsDashboard/StudentAttendance.jsx';
+import StudentNotifications from './pages/StudentsDashboard/StudentNotification.jsx';
+import JCafe from './pages/StudentsDashboard/JCafe.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const { currentUser } = useSelector(state => state.user);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/student-dashboard' element={<StudentDashboard />} />
+
+        <Route path='/student/timetable' element={<StudentTimetable />} />
+        <Route path='/student/attendance' element={<StudentAttendance />} />
+        <Route path='/student/notifications' element={<StudentNotifications />} />
+        <Route path='/student/jcafe' element={<JCafe />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<Signup />} />
+        {currentUser ? (
+          <Route path="/profile" element={<ProfilePage />} />
+        ) : (
+          <Route path="/" element={<HomePage />} />
+        )}
+
+      </Routes>
   )
 }
 

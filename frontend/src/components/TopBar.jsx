@@ -1,0 +1,33 @@
+import "./TopBar.css";
+import { Brain } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+export default function TopBar() {
+    const navigate = useNavigate();
+    function handleSignIn() {
+        navigate('/signin');
+    }
+    return (
+        <header className="sd-wrapper">
+            {/* Left Side: Logo + Title */}
+            <div className="sd-left">
+                <div className="sd-logo">
+                    <div className="sd-logo">
+                        <Brain size={28} strokeWidth={2} className="logo-icon" color="white"/>
+                    </div>
+                </div>
+                <div>
+                    <h2 className="sd-sitename">EduSync</h2>
+                    <span className="sd-sitemotto">AI-Powered Scheduling</span>
+                </div>
+            </div>
+
+            <div className="sd-right">
+                <button className="sd-theme">
+
+                </button>
+                <button className="sd-btn sign-in" onClick={handleSignIn}>Sign In</button>
+                <button className="sd-btn get-started" onClick={()=>navigate("/signUp")}>Get Started</button>
+            </div>
+        </header>
+    );
+}

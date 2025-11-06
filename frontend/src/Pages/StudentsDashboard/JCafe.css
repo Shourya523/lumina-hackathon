@@ -1,0 +1,109 @@
+:root {
+  --bg-dark: #080808;
+  --text-light: #fff;
+  --border: rgba(255, 255, 255, 0.1);
+  --btn-dark: #1c1c1c;
+  --accent: #ffffff;
+}
+
+.jcafe-layout {
+  display: flex;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+}
+
+.jcafe-content {
+  padding: 24px 32px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 28px;
+}
+
+.jcafe-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.jcafe-item-card {
+  background-color: var(--btn-dark);
+  border: 1px solid var(--border);
+  padding: 18px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.jcafe-item-card h2 {
+  margin: 0;
+}
+
+.jcafe-desc {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.jcafe-bottom {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jcafe-price {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.jcafe-add-btn {
+  background-color: var(--accent);
+  color: black;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.jcafe-cart {
+  background-color: var(--btn-dark);
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.jcafe-cart h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.jcafe-cart-item {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.jcafe-empty {
+  opacity: 0.5;
+  font-size: 0.9rem;
+}
+
+.jcafe-order-btn {
+  margin-top: 12px;
+  width: 100%;
+  background-color: var(--accent);
+  color: var(--bg-dark);
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.jcafe-status {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #4ade80;
+}
