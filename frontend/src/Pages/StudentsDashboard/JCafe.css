@@ -8,29 +8,39 @@
 }
 
 /* PAGE LAYOUT */
-.jcafe-layout {
+.cafe-layout {
   display: flex;
   background-color: var(--bg-dark);
   color: var(--text-light);
   min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Placeholder for sidebar - assuming 240px width */
+.cafe-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    /* Add sidebar styles here */
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border);
 }
 
 /* Align with Sidebar */
-.main-content {
+.cafe-main-content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   padding: 28px 40px;
-  margin-left: 240px;
+  /* margin-left: 240px; (Handled by flex layout) */
 }
 
-/* If Sidebar collapses */
-.sidebar-student.collapsed + .main-content {
-  margin-left: 80px;
+/* If Sidebar collapses (Example) */
+.cafe-sidebar.collapsed {
+    width: 80px;
 }
 
 /* CONTENT GRID */
-.jcafe-content {
+.cafe-content {
   margin-top: 28px;
   display: grid;
   grid-template-columns: 3fr 1fr;
@@ -39,14 +49,14 @@
 }
 
 /* MENU GRID */
-.jcafe-menu-grid {
+.cafe-menu-grid {
   display: grid;
   gap: 22px;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
 
 /* ITEM CARD */
-.jcafe-item-card {
+.cafe-item-card {
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   padding: 22px;
@@ -56,24 +66,25 @@
   transition: transform 0.15s ease;
 }
 
-.jcafe-item-card:hover {
+.cafe-item-card:hover {
   transform: translateY(-2px);
 }
 
-.jcafe-item-card h2 {
+.cafe-item-card h2 {
   margin: 0 0 6px 0;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-.jcafe-desc {
+.cafe-item-desc {
   font-size: 0.9rem;
   opacity: 0.8;
   line-height: 1.4;
+  flex-grow: 1; /* Ensures card bottoms align */
 }
 
 /* CARD BOTTOM AREA */
-.jcafe-bottom {
+.cafe-item-bottom {
   margin-top: auto;
   margin-top: 14px;
   display: flex;
@@ -81,36 +92,42 @@
   align-items: center;
 }
 
-.jcafe-price {
+.cafe-item-price {
   font-size: 1rem;
   font-weight: 600;
 }
 
-.jcafe-add-btn {
+.cafe-add-button {
   background-color: var(--accent);
   color: #000;
   border: none;
-  padding: 6px 12px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.jcafe-add-btn:hover {
+.cafe-add-button:hover {
   transform: scale(1.1);
 }
 
 /* CART SECTION */
-.jcafe-cart {
+.cafe-cart-container {
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   padding: 22px;
   border-radius: 14px;
   min-width: 240px;
+  position: sticky; /* Makes cart follow scroll */
+  top: 28px;
 }
 
-.jcafe-cart h3 {
+.cafe-cart-container h3 {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -118,38 +135,80 @@
   font-size: 1.1rem;
 }
 
-.jcafe-cart-item {
-  padding: 6px 0;
+.cafe-cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
   font-size: 0.95rem;
   border-bottom: 1px solid var(--border);
 }
 
+.cafe-cart-item span {
+  margin-right: 8px;
+}
+
+.cafe-remove-button {
+  background: none;
+  border: none;
+  color: #ff6b6b; /* Reddish color for remove */
+  cursor: pointer;
+  margin-left: auto;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.cafe-remove-button:hover {
+  color: #fff;
+  background-color: var(--border);
+}
+
 /* Empty Cart text */
-.jcafe-empty {
+.cafe-cart-empty {
   font-size: 0.9rem;
   opacity: 0.6;
   padding-top: 8px;
 }
 
+/* Cart Total */
+.cafe-cart-total {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
 /* ORDER BUTTON */
-.jcafe-order-btn {
+.cafe-order-button {
   margin-top: 16px;
   width: 100%;
   background-color: var(--accent);
   color: var(--bg-dark);
   font-weight: 600;
   padding: 10px;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.jcafe-order-btn:hover {
+.cafe-order-button:hover {
   background-color: #e2e2e2;
 }
 
+.cafe-order-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 /* ORDER STATUS */
-.jcafe-status {
+.cafe-order-status {
   margin-top: 18px;
   display: flex;
   align-items: center;
@@ -159,7 +218,7 @@
 }
 
 /* POPUP */
-.popup-overlay {
+.cafe-popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -173,16 +232,17 @@
   z-index: 999;
 }
 
-.popup-box {
+.cafe-popup-box {
   background: #111;
   padding: 28px;
   border-radius: 14px;
   width: 320px;
   border: 1px solid var(--border);
   text-align: center;
+  position: relative;
 }
 
-.popup-close {
+.cafe-popup-close-button {
   position: absolute;
   right: 12px;
   top: 12px;
@@ -192,13 +252,30 @@
   cursor: pointer;
 }
 
-.qr-image {
+.cafe-qr-image {
   width: 200px;
+  height: 200px;
   margin: 18px auto;
+  border-radius: 8px;
 }
 
-.timer {
+.cafe-popup-timer {
   margin-top: 12px;
   font-size: 1rem;
   font-weight: 600;
+}
+
+/* NOTIFICATION */
+.cafe-notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4ade80;
+  color: var(--bg-dark);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }

@@ -77,52 +77,52 @@ export default function JCafe() {
   };
 
   return (
-    <div className="jcafe-layout">
+    <div className="cafe-layout">
       <SideBarStudent activePage={"jcafe"} />
 
-      <main className="main-content">
+      <main className="cafe-main-content">
         <Header title="JCafe" subtitle="Skip the queue, order ahead." />
 
-        <div className="jcafe-content">
-          <div className="jcafe-menu-grid">
+        <div className="cafe-content">
+          <div className="cafe-menu-grid">
             {menuItems.map((item, index) => (
-              <div key={index} className="jcafe-item-card">
+              <div key={index} className="cafe-item-card">
                 <h2>{item.name}</h2>
-                <p className="jcafe-desc">{item.desc}</p>
-                <div className="jcafe-bottom">
-                  <span className="jcafe-price">₹{item.price}</span>
-                  <button className="jcafe-add-btn" onClick={() => addToCart(item)}>+</button>
+                <p className="cafe-item-desc">{item.desc}</p>
+                <div className="cafe-item-bottom">
+                  <span className="cafe-item-price">₹{item.price}</span>
+                  <button className="cafe-add-button" onClick={() => addToCart(item)}>+</button>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="jcafe-cart">
+          <div className="cafe-cart-container">
             <h3><ShoppingCart size={18} /> Cart</h3>
 
             {cart.length === 0 ? (
-              <p className="jcafe-empty">Your cart is empty.</p>
+              <p className="cafe-cart-empty">Your cart is empty.</p>
             ) : (
               <>
                 {cart.map((item, idx) => (
-                  <div key={idx} className="jcafe-cart-item">
+                  <div key={idx} className="cafe-cart-item">
                     <span>{item.name} x {item.qty} — ₹{item.price * item.qty}</span>
-                    <button className="jcafe-remove-btn" onClick={() => removeFromCart(item.name)}>
+                    <button className="cafe-remove-button" onClick={() => removeFromCart(item.name)}>
                       <X size={14} />
                     </button>
                   </div>
                 ))}
 
-                <div className="jcafe-total">Total: ₹{totalPrice}</div>
+                <div className="cafe-cart-total">Total: ₹{totalPrice}</div>
 
-                <button className="jcafe-order-btn" onClick={openPaymentPopup}>
+                <button className="cafe-order-button" onClick={openPaymentPopup}>
                   Place Order
                 </button>
               </>
             )}
 
             {orderPlaced && (
-              <div className="jcafe-status">
+              <div className="cafe-order-status">
                 <CheckCircle size={18} />
                 <p>Your order is being prepared...</p>
               </div>
@@ -132,16 +132,16 @@ export default function JCafe() {
       </main>
 
       {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-box">
-            <button className="popup-close" onClick={closePopup}><X size={20} /></button>
+        <div className="cafe-popup-overlay">
+          <div className="cafe-popup-box">
+            <button className="cafe-popup-close-button" onClick={closePopup}><X size={20} /></button>
 
             <h2>Scan to Pay</h2>
             <p>Total: ₹{totalPrice}</p>
 
-            <img src={qrImage} alt="QR Code" className="qr-image" />
+            <img src={qrImage} alt="QR Code" className="cafe-qr-image" />
 
-            <p className="timer">
+            <p className="cafe-popup-timer">
               Time Remaining: <strong>{Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}</strong>
             </p>
           </div>
