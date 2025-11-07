@@ -32,7 +32,7 @@ export default function Campaigns() {
         setLoading(true);
 
         try {
-            const res = await fetch("http://localhost:8000/api/sendmail", {
+            const res = await fetch("https://lumina-hackathon.onrender.com/api/sendmail", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",

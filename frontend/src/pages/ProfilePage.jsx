@@ -22,7 +22,7 @@ const ProfilePage = () => {
     const handleSignOut = async() => {
         console.log('Signing out user...');
         try {
-            await fetch('http://localhost:8000/api/auth/signout');
+            await fetch('https://lumina-hackathon.onrender.com/api/auth/signout');
             dispatch(signOut());
             navigate('/');
             console.log('User signed out successfully');

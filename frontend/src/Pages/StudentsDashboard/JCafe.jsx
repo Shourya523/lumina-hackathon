@@ -93,7 +93,7 @@ export default function JCafe() {
     };
     try {
       for (const item of orderData.items) {
-        await fetch("http://localhost:8000/api/cart/add", {
+        await fetch("https://lumina-hackathon.onrender.com/api/cart/add", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           credentials: "include",
