@@ -1,0 +1,52 @@
+.campaign-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.campaign-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--btn-dark);
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.campaign-icon {
+    flex-shrink: 0;
+}
+
+.campaign-icon .icon-sent {
+    color: #16a34a;
+}
+
+.campaign-icon .icon-draft {
+    color: #f59e0b;
+}
+
+.campaign-details {
+    overflow: hidden;
+}
+
+.campaign-details strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.campaign-details span {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.campaign-form textarea {
+    min-height: 200px;
+    resize: vertical;
+}
