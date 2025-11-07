@@ -13,12 +13,20 @@ import JCafe from './pages/StudentsDashboard/JCafe.jsx';
 import Notes from './Pages/StudentsDashboard/Notes.jsx';
 import Opportunities from './Pages/StudentsDashboard/StudentOpportunities.jsx';
 import Support from './Pages/StudentsDashboard/StudentSupport.jsx';
+import AdminDashboard from './Pages/AdminDashBoard.jsx';
+import Campaigns from './Pages/Campaigns.jsx';
+import AdminOpportunities from './Pages/Opportunities.jsx';
+import AdminSignUp from './Pages/AdminSignUp.jsx';
 function App() {
   const { currentUser } = useSelector(state => state.user);
 
   return (
     <Routes>
       <Route path='/' element={<HomePage />} />
+      <Route path='/admin-dashboard' element={<AdminDashboard />} />
+      <Route path='/admin/campaigns' element={<Campaigns />} />
+      <Route path='/admin/opportunities' element={<AdminOpportunities />} />
+      <Route path='/admin/signup' element={<AdminSignUp />} />
       <Route path='/student-dashboard' element={<StudentDashboard />} />
       <Route path='/student/jcafe' element={<JCafe />} />
       <Route path='/student/timetable' element={<StudentTimetable />} />

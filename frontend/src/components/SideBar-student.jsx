@@ -46,7 +46,7 @@ export default function SideBarStudent({ activePage = "" }) {
 
     return (
         <aside className={`sidebar-student${collapsed ? ' collapsed' : ''}`}>
-            
+
             <div className="sidebar-student-header">
                 <div className="logo-sidebar">
                     <LayoutGrid size={24} />
@@ -58,67 +58,101 @@ export default function SideBarStudent({ activePage = "" }) {
             </div>
 
             <nav className="sidebar-student-nav">
-                {/* --- Main Navigation List --- */}
                 <ul>
-                    <li className={activePage === 'dashboard' ? 'active' : ''} onClick={() => handleNavigate("-dashboard")}>
+
+                    {/* ✅ Dashboard */}
+                    <li
+                        className={activePage === 'dashboard' ? 'active' : ''}
+                        onClick={() => handleNavigate("-dashboard")}
+                    >
                         <a href="#">
                             <LayoutDashboard size={20} />
                             <span className="label">{labels.dashboard}</span>
                         </a>
                     </li>
 
-                    <li className={activePage === 'timetable' ? 'active' : ''} onClick={() => handleNavigate("/timetable")}>
+                    {/* ✅ Notes */}
+                    <li
+                        className={activePage === 'notes' ? 'active' : ''}
+                        onClick={() => handleNavigate("/notes")}
+                    >
                         <a href="#">
-                            <CalendarDays size={20} />
-                            <span className="label">{labels.timetable}</span>
+                            <StickyNote size={20} />
+                            <span className="label">{labels.notes}</span>
                         </a>
                     </li>
 
-                    <li className={activePage === 'attendance' ? 'active' : ''} onClick={() => handleNavigate("/attendance")}>
-                        <a href="#">
-                            <ClipboardCheck size={20} />
-                            <span className="label">{labels.attendance}</span>
-                        </a>
-                    </li>
-
-                    <li className={activePage === 'notifications' ? 'active' : ''} onClick={() => handleNavigate("/notifications")}>
-                        <a href="#">
-                            <Bell size={20} />
-                            <span className="label">{labels.notifications}</span>
-                        </a>
-                    </li>
-                    <li className={activePage === 'jcafe' ? 'active' : ''} onClick={() => handleNavigate("/jcafe")}>
+                    {/* ✅ JCafe */}
+                    <li
+                        className={activePage === 'jcafe' ? 'active' : ''}
+                        onClick={() => handleNavigate("/jcafe")}
+                    >
                         <a href="#">
                             <Coffee size={20} />
                             <span className="label">{labels.jcafe}</span>
                         </a>
                     </li>
 
-                    {/* --- ADDED NOTES ITEM --- */}
-                    <li className={activePage === 'notes' ? 'active' : ''} onClick={() => handleNavigate("/notes")}>
-                        <a href="#">
-                            <StickyNote size={20} />
-                            <span className="label">{labels.notes}</span>
-                        </a>
-                    </li>
-                </ul>
-
-                {/* --- ADDED SUPPORT SECTION --- */}
-                <ul className="support-nav-section"> {/* Added a new list for the support section */}
-                    <li className={activePage === 'support' ? 'active' : ''} onClick={() => handleNavigate("/support")}>
-                        <a href="#">
-                            <LifeBuoy size={20} />
-                            <span className="label">{labels.support}</span>
-                        </a>
-                    </li>
-                    <li className={activePage === 'Opportunities' ? 'active' : ''} onClick={() => handleNavigate("/opportunities")}>
+                    {/* ✅ Opportunities */}
+                    <li
+                        className={activePage === 'opportunities' ? 'active' : ''}
+                        onClick={() => handleNavigate("/opportunities")}
+                    >
                         <a href="#">
                             <Star size={20} />
                             <span className="label">{labels.Opportunities}</span>
                         </a>
                     </li>
+
+                    {/* ✅ Timetable */}
+                    <li
+                        className={activePage === 'timetable' ? 'active' : ''}
+                        onClick={() => handleNavigate("/timetable")}
+                    >
+                        <a href="#">
+                            <CalendarDays size={20} />
+                            <span className="label">{labels.timetable}</span>
+                        </a>
+                    </li>
+
+                    {/* ✅ Attendance */}
+                    <li
+                        className={activePage === 'attendance' ? 'active' : ''}
+                        onClick={() => handleNavigate("/attendance")}
+                    >
+                        <a href="#">
+                            <ClipboardCheck size={20} />
+                            <span className="label">{labels.attendance}</span>
+                        </a>
+                    </li>
+
+                    {/* ✅ ✅ SUPPORT — moved ABOVE notifications */}
+                    <li
+                        className={activePage === 'support' ? 'active' : ''}
+                        onClick={() => handleNavigate("/support")}
+                    >
+                        <a href="#">
+                            <LifeBuoy size={20} />
+                            <span className="label">{labels.support}</span>
+                        </a>
+                    </li>
+
+                    {/* ✅ Notifications */}
+                    <li
+                        className={activePage === 'notifications' ? 'active' : ''}
+                        onClick={() => handleNavigate("/notifications")}
+                    >
+                        <a href="#">
+                            <Bell size={20} />
+                            <span className="label">{labels.notifications}</span>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
+
+
+
 
             <div className="sidebar-student-footer">
                 <button onClick={() => setCollapsed(!collapsed)} aria-label="Toggle sidebar">

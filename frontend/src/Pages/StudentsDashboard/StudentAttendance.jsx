@@ -9,7 +9,6 @@ import AIChat from '../../components/AiChat.jsx';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler);
 
-// --- MOCK DATA (Updated for Nov 6, 2025) ---
 const attendanceData = [
     { code: 'CS-501', name: 'Computer Networks', totalClasses: 50, attendedClasses: 45 },
     { code: 'CS-502', name: 'Theory of Computation', totalClasses: 48, attendedClasses: 42 },
@@ -37,13 +36,10 @@ const courseChartData = {
     'CS-502': { labels: ['04/09', '11/09', '18/09', '25/09', '02/10', '09/10', '16/10', '23/10', '30/10', '06/11'], values: [100, 100, 91, 92, 93, 90, 85, 86, 87, 84] },
     'CS-503': { labels: ['04/09', '11/09', '18/09', '25/09', '02/10', '09/10', '16/10', '23/10', '30/10', '05/11'], values: [100, 95, 90, 88, 85, 82, 80, 75, 70, 68] }
 };
-// --- END OF MOCK DATA ---
 
 const calculatePercentage = (attended, total) => {
     return total === 0 ? 0 : Math.round((attended / total) * 100);
 };
-
-// --- Circular Progress Component ---
 const CircularProgress = ({ percentage }) => {
     const radius = 30;
     const stroke = 5;
@@ -58,10 +54,7 @@ const CircularProgress = ({ percentage }) => {
         </svg>
     );
 };
-
-// --- Calendar Component for Day-to-Day tab ---
 const Calendar = ({ selectedDate, setSelectedDate }) => {
-    // UPDATED: Default month is now November 2025 (month 10)
     const [currentMonth, setCurrentMonth] = useState(new Date(2025, 10, 1));
     const renderHeader = () => (<div className="calendar-header"><button onClick={() => setCurrentMonth(new Date(currentMonth.setMonth(currentMonth.getMonth() - 1)))}><ChevronLeft size={20} /></button><span>{new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(currentMonth)}</span><button onClick={() => setCurrentMonth(new Date(currentMonth.setMonth(currentMonth.getMonth() + 1)))}><ChevronRight size={20} /></button></div>);
     const renderDays = () => (<div className="calendar-days">{['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => <div key={day}>{day}</div>)}</div>);
@@ -91,7 +84,6 @@ const AttendanceChart = ({ data }) => {
 };
 
 const DetailCalendar = ({ attendance }) => {
-    // UPDATED: Default month is now November 2025 (month 10)
     const [currentMonth] = useState(new Date(2025, 10, 1));
     const renderHeader = () => (<div className="calendar-header"><button disabled><ChevronLeft size={20} /></button><span>{new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(currentMonth)}</span><button disabled><ChevronRight size={20} /></button></div>);
     const renderDays = () => (<div className="calendar-days">{['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => <div key={day}>{day}</div>)}</div>);
@@ -130,7 +122,6 @@ const CourseDetailView = ({ course, onBack, lang }) => {
 
 export default function StudentAttendance() {
     const [activeTab, setActiveTab] = useState('overview');
-    // UPDATED: Default selected date is now Nov 6, 2025
     const [selectedDate, setSelectedDate] = useState('2025-11-06');
     const [selectedCourse, setSelectedCourse] = useState(null);
     const todaysClasses = dayToDayData[selectedDate] || [];

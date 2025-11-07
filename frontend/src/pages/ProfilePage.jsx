@@ -13,8 +13,6 @@ import { useSelector,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from '../Redux/user.redux.js';
 import './profilepage.css';
-
-// Using the avatar URL from our previous conversation
 const avatarUrl = '../../public/default-avatar.png';
 
 const ProfilePage = () => {
@@ -26,7 +24,6 @@ const ProfilePage = () => {
         try {
             await fetch('http://localhost:8000/api/auth/signout');
             dispatch(signOut());
-            // navigate to home after signing out
             navigate('/');
             console.log('User signed out successfully');
         } catch (error) {

@@ -4,8 +4,6 @@ import { Megaphone, CheckCircle, Bell, CalendarClock, CalendarX2, Timer } from '
 import SideBarStudent from '../../components/SideBar-student';
 import Header from '../../components/Header';
 import AIChat from '../../components/AiChat';
-
-// --- Mock Data with updated icon class names ---
 const initialStudentNotifications = [
   {
     id: 1,
@@ -109,8 +107,6 @@ const initialStudentNotifications = [
   }
 ];
 
-
-// Hindi translations for notification types/actions
 const hiText = {
     inbox: "इनबॉक्स",
     unread: "अपठित",
@@ -136,12 +132,8 @@ const hiText = {
     markRead: "पढ़ा हुआ चिह्नित करें"
 };
 
-
-// --- Reusable Notification Card Component ---
 const NotificationCard = ({ notification, onMarkRead, lang }) => {
     const { id, type, icon, title, message, timestamp, read, actions } = notification;
-
-    // Hindi mapping for title/message/actions
     const hiMap = {
         'Class Rescheduled': hiText.classRescheduled,
         'Your "Data Structures" class scheduled for Monday 10:00 AM has been moved to Tuesday, 02:00 PM in Room LT-101.': hiText.rescheduledMsg,

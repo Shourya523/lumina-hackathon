@@ -1,0 +1,57 @@
+/* --- Campaigns.css --- */
+
+/* Styles for the new "Past Campaigns" list */
+.campaign-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.campaign-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--btn-dark); /* Using your existing variable */
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border); /* Using your existing variable */
+}
+
+.campaign-icon {
+    flex-shrink: 0;
+}
+
+/* Color-coding the status icons */
+.campaign-icon .icon-sent {
+    color: #16a34a; /* Green */
+}
+
+.campaign-icon .icon-draft {
+    color: #f59e0b; /* Yellow */
+}
+
+.campaign-details {
+    overflow: hidden;
+}
+
+.campaign-details strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.campaign-details span {
+    font-size: 0.8rem;
+    color: var(--text-secondary); /* Using your existing variable */
+}
+
+/* Give the text area more space on this page */
+.campaign-form textarea {
+    min-height: 200px;
+    resize: vertical;
+}

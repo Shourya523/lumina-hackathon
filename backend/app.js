@@ -6,6 +6,7 @@ import { userRoute } from './routes/user.route.js';
 import { authRouter } from './routes/auth.route.js';
 import cors from 'cors';
 import router from './routes/cartRoutes.js';
+import { sendMailRoute } from './routes/sendMail.route.js';
 dotenv.config();
 export const app = express();
 app.use(cookieParser());
@@ -23,6 +24,7 @@ app.use('/',testroute);
 app.use('/api',userRoute);
 app.use('/api/auth',authRouter);
 app.use('/api/cart',router);
+app.use('/api',sendMailRoute);
 app.use((err,req,res,next)=>{
     const statuscode=err.statuscode || 500;
     const message=err.message || 'Internal Server Error';

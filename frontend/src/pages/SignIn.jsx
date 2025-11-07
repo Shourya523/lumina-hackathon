@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import './signin.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-import CustomToast from '../components/CustomToastContainer.jsx'
 import { signInStart, signInSuccess, signInFailure } from '../Redux/user.redux.js'
 import { useDispatch, useSelector } from 'react-redux';
 import OAuth from '../components/OAuth.jsx';
-import { Mail, Lock, Eye, EyeOff, Contact } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 
 export default function SignIn() {
     const dispatchEvent = useDispatch();
@@ -17,8 +16,7 @@ export default function SignIn() {
 
     const handleForm = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value })
-    }
-    console.log(formData);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,7 +30,6 @@ export default function SignIn() {
             });
 
             const data = await res.json();
-            console.log(data);
 
             if (data.success === false) {
                 dispatchEvent(signInFailure(data.message));
@@ -49,46 +46,68 @@ export default function SignIn() {
         }
     };
 
-
     return (
-        <div className="signup-container-signin">
+        <div className="signin-container-signin-student">
             <ToastContainer position="top-left" />
-            <div className="left-pane-signin">
-                <div className="logo-signin">
-                </div>
-                <div className="illustration-container-signin">
-                </div>
-            </div>
-            <div className="right-pane-signin">
-                <div className="form-container-signin">
-                    <h2 className="welcome-heading-signin">Welcome Back!</h2>
-                    <p className="welcome-subheading-signin">Conversations that create clarity.</p>
-                    <OAuth  />
 
-                    <div className="separator-signin">
+            <div className="left-pane-signin-student">
+                <div className="logo-signin-student"></div>
+                <div className="illustration-container-signin-student"></div>
+            </div>
+
+            <div className="right-pane-signin-student">
+                <div className="form-container-signin-student">
+                    <h2 className="welcome-heading-signin-student">Welcome Back!</h2>
+                    <p className="welcome-subheading-signin-student">Conversations that create clarity.</p>
+
+                    <OAuth />
+
+                    <div className="separator-signin-student">
                         <span>Or</span>
                     </div>
 
-                    <form>
-                        <div className="form-group-signin">
+                    <form className="form-signin-student">
+                        <div className="form-group-signin-student">
                             <input type="email" id="email" placeholder="Email Address" required onChange={handleForm} />
-                            <span className="input-icon-signin"><Mail size={18} /></span>
+                            <span className="input-icon-signin-student"><Mail size={18} /></span>
                         </div>
-                        <div className="form-group-signin">
-                            <input type={showPassword ? 'text' : 'password'} id="password" placeholder="Password" required onChange={handleForm} />
-                            <span className="input-icon-signin"><Lock size={18} /></span>
-                            <span className="input-icon-right-signin" onClick={() => setShowPassword(s => !s)}>
+
+                        <div className="form-group-signin-student">
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                id="password"
+                                placeholder="Password"
+                                required
+                                onChange={handleForm}
+                            />
+                            <span className="input-icon-signin-student"><Lock size={18} /></span>
+
+                            <span className="input-icon-right-signin-student" onClick={() => setShowPassword(s => !s)}>
                                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                             </span>
                         </div>
-                        <button disabled={loading} type="submit" className="submit-btn-signin submit-btn-text-signin" onClick={handleSubmit}>{loading ? 'Loading...' : 'Sign In'}</button>
+
+                        <button
+                            disabled={loading}
+                            type="submit"
+                            className="submit-btn-signin-student submit-btn-text-signin-student"
+                            onClick={handleSubmit}
+                        >
+                            {loading ? 'Loading...' : 'Sign In'}
+                        </button>
                     </form>
 
-                    <p className="footer-link-signin">
-                        New to EduSync? <span className='signin-page-btn-signin' onClick={() => navigate("/signUp")}>Sign Up</span>
+                    <p className="footer-link-signin-student">
+                        New to EduSync?
+                        <span className='signin-page-btn-signin-student' onClick={() => navigate("/signUp")}>
+                            Sign Up
+                        </span>
                     </p>
                 </div>
-                <p className="copyright-signin">&copy; 2025 All Rights Reserved</p>
+
+                <p className="copyright-signin-student">
+                    © 2025 All Rights Reserved
+                </p>
             </div>
         </div>
     );

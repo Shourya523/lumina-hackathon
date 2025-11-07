@@ -3,6 +3,8 @@ import "./StudentSupport.css";
 import SideBarStudent from "../../components/SideBar-student";
 import Header from "../../components/Header";
 import { MessageSquare, CheckCircle, Clock, Send } from "lucide-react";
+import { ToastContainer, toast } from "react-toastify";
+
 
 const initialComplaints = [
   {
@@ -59,15 +61,21 @@ const initialComplaints = [
 export default function Support() {
   const [complaints, setComplaints] = useState(initialComplaints);
   const [filter, setFilter] = useState("all");
-
+  const [loading, setLoading] = useState(false);
   const [newComplaint, setNewComplaint] = useState({
     title: "",
     description: ""
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!newComplaint.title.trim() || !newComplaint.description.trim()) return;
+
+    if (!newComplaint.title.trim() || !newComplaint.description.trim()) {
+      toast.error("Please fill all fields!");
+      return;
+    }
+
+    setLoading(true);
 
     const newEntry = {
       id: complaints.length + 1,
@@ -79,8 +87,51 @@ export default function Support() {
     };
 
     setComplaints([newEntry, ...complaints]);
+
+    try {
+      const res = await fetch("http://localhost:8000/api/sendmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          subject: newComplaint.title,
+          message: newComplaint.description,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        toast.success("Mail sent successfully!");
+        setComplaints((prev) =>
+          prev.map((c) =>
+            c.id === newEntry.id ? { ...c, status: "sent" } : c
+          )
+        );
+      } else {
+        toast.error(data.error || "Failed to send mail!");
+        setComplaints((prev) =>
+          prev.map((c) =>
+            c.id === newEntry.id ? { ...c, status: "not-sent" } : c
+          )
+        );
+      }
+    } catch (err) {
+      toast.error("Server error! Could not send mail.");
+      setComplaints((prev) =>
+        prev.map((c) =>
+          c.id === newEntry.id ? { ...c, status: "not-sent" } : c
+        )
+      );
+    }
+
+    setLoading(false);
     setNewComplaint({ title: "", description: "" });
   };
+
+
 
   const filteredList =
     filter === "all"
@@ -95,10 +146,10 @@ export default function Support() {
           title="Support & Help Desk"
           subtitle="Raise issues and track complaint status"
         />
+        <ToastContainer position="top-right" autoClose={2000} />
 
         <div className="support-page">
 
-          {/* Complaint Form */}
           <div className="support-form-container">
             <h3>Raise a Complaint</h3>
             <form onSubmit={handleSubmit}>
@@ -114,12 +165,21 @@ export default function Support() {
                 placeholder="Describe the issue..."
                 value={newComplaint.description}
                 onChange={(e) =>
-                  setNewComplaint({ ...newComplaint, description: e.target.value })
+                  setNewComplaint({
+                    ...newComplaint,
+                    description: e.target.value,
+                  })
                 }
               ></textarea>
-              <button className="support-submit-btn" type="submit">
-                <Send size={18}/> Submit
+              <button
+                className="support-submit-btn"
+                type="submit"
+                disabled={loading}
+                style={{ opacity: loading ? 0.6 : 1, cursor: loading ? "not-allowed" : "pointer" }}
+              >
+                {loading ? "Sending..." : <><Send size={18} /> Submit</>}
               </button>
+
             </form>
           </div>
 
@@ -163,10 +223,18 @@ export default function Support() {
                 <p className="support-desc">{c.description}</p>
 
                 <div className="support-status">
-                  {c.status === "pending" && <Clock size={18} className="pending"/>}
-                  {c.status === "in-progress" && <MessageSquare size={18} className="in-progress"/>}
-                  {c.status === "resolved" && <CheckCircle size={18} className="resolved"/>}
-                  <span className={c.status}>{c.status.replace("-", " ").toUpperCase()}</span>
+                  {c.status === "pending" && (
+                    <Clock size={18} className="pending" />
+                  )}
+                  {c.status === "in-progress" && (
+                    <MessageSquare size={18} className="in-progress" />
+                  )}
+                  {c.status === "resolved" && (
+                    <CheckCircle size={18} className="resolved" />
+                  )}
+                  <span className={c.status}>
+                    {c.status.replace("-", " ").toUpperCase()}
+                  </span>
                 </div>
 
                 {c.resolution && (
@@ -177,7 +245,6 @@ export default function Support() {
               </div>
             ))}
           </div>
-
         </div>
       </main>
     </div>

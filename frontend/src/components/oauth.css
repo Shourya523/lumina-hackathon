@@ -1,110 +1,45 @@
-/* Using Google Font 'Geist' to match the dashboard */
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
-
-/* Root variables from your dashboard theme */
-:root {
-    --bg-dark: #080808;
-    --text-light: #eeeeee;
-    --border: rgba(255, 255, 255, 0.1);
-    --btn-dark: #1c1c1c;
-    --btn-light: #ffffff;
-    --text-dark: #0f0f0f;
-    --danger-red: #E5484D;
-    --text-muted: rgba(238, 238, 238, 0.7);
-}
-
-body {
-    margin: 0;
-    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: var(--bg-dark); /* Changed from #dee3ee */
-    color: var(--text-light); /* Changed from #333 */
-}
-
-.social-buttons-signin {
+.social-buttons-signup-student {
     display: flex;
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
 
-.social-btn-signin {
+.social-btn-signup-student {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0.75rem;
-    border: 1px solid var(--border); /* Changed from #e0e0e0 */
+    border: 1px solid var(--border);
     border-radius: 12px;
-    background-color: var(--btn-dark); /* Changed from #fff */
-    color: var(--text-light); /* Added for icon/text */
+    background-color: var(--btn-dark);
+    color: var(--text-light);
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-.social-btn-signin:hover {
-    background-color: #2a2a2a; /* Changed from #f5f5f5 */
+.social-btn-signup-student:hover {
+    background-color: #2a2a2a;
 }
-.google-btn-signin {
-    /*
-     * FIX: Removed 'display: inline-flex;'
-     * This now inherits 'display: flex;' from .social-btn-signin,
-     * which allows 'flex-grow: 1' and 'justify-content: center'
-     * to work correctly, matching your image.
-    */
+
+.google-btn-signup-student {
     gap: 0.75rem;
     align-items: center;
     justify-content: center;
     padding: 0.6rem 0.9rem;
-    border: 1px solid var(--border); /* Changed from #e6e6e6 */
+    border: 1px solid var(--border);
     border-radius: 12px;
-    background: var(--btn-dark); /* Changed from #fff */
-    box-shadow: none; /* Removed light shadow */
+    background: var(--btn-dark);
+    box-shadow: none;
     font-weight: 600;
 }
 
-.google-logo-signin {
+.google-logo-signup-student {
     display: inline-flex;
     width: 18px;
     height: 18px;
-    /* Added to preserve Google logo branding */
-    background-color: black; 
-    padding: 0px;
-    border-radius: 50%;
 }
 
-.google-text-signin {
-    color: var(--text-light); /* Changed from #111827 */
-}
-
-/* Responsive Design - No theme changes needed */
-@media (max-width: 900px) {
-    .signup-container {
-        flex-direction: column;
-    }
-
-    .left-pane,
-    .right-pane {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 2rem;
-    }
-
-    .left-pane {
-        display: none;
-        /* In many mobile views, the illustration pane is hidden */
-    }
-
-    .right-pane {
-        justify-content: flex-start;
-        min-height: 100vh;
-    }
-
-    .copyright {
-        position: relative;
-        margin-top: 2rem;
-        bottom: auto;
-    }
+.google-text-signup-student {
+    color: var(--text-light);
 }

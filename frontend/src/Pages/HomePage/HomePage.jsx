@@ -43,7 +43,7 @@ export default function HomePage() {
                     <button className="btn btn-primary-home" onClick={()=>navigate("/signin")}> 
                         Start Free Trial <ArrowRight size={16} />
                     </button>
-                    <button className="btn btn-secondary-demo-dashboard" onClick={()=>navigate("/student-dashboard")}>View Demo Dashboard</button>
+                    <button className="btn btn-secondary-demo-dashboard" onClick={()=>navigate("/admin/signup")}>Explore as Admin</button>
                 </div>
             </section>
 
@@ -238,10 +238,10 @@ export default function HomePage() {
                     backlogs and the student's daily chaos.
                 </p>
                 <div className={`cta-actions fade-up${fade ? ' visible' : ''}`}>
-                    <button className="btn btn-cta-primary" onClick={()=>navigate("/register")}>
+                    <button className="btn btn-cta-primary" onClick={()=>navigate("/signup")}>
                         Start Your Free Trial <ArrowRight size={16} />
                     </button>
-                    <button className="btn btn-cta-secondary" onClick={()=>navigate("/login")}>
+                    <button className="btn btn-cta-secondary" onClick={()=>navigate("/signin")}>
                         Sign In to Dashboard
                     </button>
                 </div>
