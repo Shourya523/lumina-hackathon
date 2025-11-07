@@ -1,8 +1,9 @@
 import React from "react"; import './oauth.css';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { app } from "../firebase"; import { useDispatch } from "react-redux";
+import { app } from "../firebase.js"; import { useDispatch } from "react-redux";
 import { signInSuccess } from "../Redux/user.redux.js"; // import { Navigate } from "react-router-dom"; 
 import { useNavigate } from "react-router-dom";
+import  {toast, ToastContainer} from "react-toastify";
 export default function OAuth() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -13,7 +14,7 @@ export default function OAuth() {
             const auth = getAuth(app);
             const result = await signInWithPopup(auth, provider);
 
-            const res = await fetch('http://localhost:8000/api/auth/google-signin', {
+            const res = await fetch('https://lumina-hackathon.onrender.comapi/auth/google-signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',

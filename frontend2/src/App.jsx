@@ -1,22 +1,22 @@
-import Signup from './Pages/SignUp.jsx';
-import ProfilePage from './Pages/ProfilePage.jsx';
-import SignIn from './Pages/SignIn.jsx';
+import Signup from './tempPages/SignUp.jsx';
+import ProfilePage from './tempPages/ProfilePage.jsx';
+import SignIn from './tempPages/SignIn.jsx';
 import { useSelector } from 'react-redux';
 import './index.css';
-import HomePage from './Pages/HomePage/HomePage.jsx';
+import HomePage from './tempPages/HomePage/HomePage.jsx';
 import { Routes, Route } from "react-router-dom";
-import StudentDashboard from './Pages/StudentsDashboard/Dashboard-students.jsx';
-import StudentTimetable from './Pages/StudentsDashboard/StudentTimetable.jsx';
-import StudentAttendance from './Pages/StudentsDashboard/StudentAttendance.jsx';
-import StudentNotifications from './Pages/StudentsDashboard/StudentNotification.jsx';
-import JCafe from './Pages/StudentsDashboard/JCafe.jsx';
-import Notes from './Pages/StudentsDashboard/Notes.jsx';
-import Opportunities from './Pages/StudentsDashboard/StudentOpportunities.jsx';
-import Support from './Pages/StudentsDashboard/StudentSupport.jsx';
-import AdminDashboard from './Pages/AdminDashBoard.jsx';
-import Campaigns from './Pages/Campaigns.jsx';
-import AdminOpportunities from './Pages/Opportunities.jsx';
-import AdminSignUp from './Pages/AdminSignUp.jsx';
+import StudentDashboard from './tempPages/StudentsDashboard/Dashboard-students.jsx';
+import StudentTimetable from './tempPages/StudentsDashboard/StudentTimetable.jsx';
+import StudentAttendance from './tempPages/StudentsDashboard/StudentAttendance.jsx';
+import StudentNotifications from './tempPages/StudentsDashboard/StudentNotification.jsx';
+import JCafe from './tempPages/StudentsDashboard/JCafe.jsx';
+import Notes from './tempPages/StudentsDashboard/Notes.jsx';
+import Opportunities from './tempPages/StudentsDashboard/StudentOpportunities.jsx';
+import Support from './tempPages/StudentsDashboard/StudentSupport.jsx';
+import AdminDashboard from './tempPages/AdminDashBoard.jsx';
+import Campaigns from './tempPages/Campaigns.jsx';
+import AdminOpportunities from './tempPages/Opportunities.jsx';
+import AdminSignUp from './tempPages/AdminSignUp.jsx';
 function App() {
   const { currentUser } = useSelector(state => state.user);
 
