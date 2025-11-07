@@ -58,7 +58,7 @@ export default function SignIn() {
             <div className="right-pane-signin-student">
                 <div className="form-container-signin-student">
                     <h2 className="welcome-heading-signin-student">Welcome Back!</h2>
-                    <p className="welcome-subheading-signin-student">Conversations that create clarity.</p>
+                    <p className="welcome-subheading-signin-student">Sign In Page for students.</p>
 
                     <OAuth />
 
