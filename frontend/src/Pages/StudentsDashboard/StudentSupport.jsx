@@ -89,7 +89,7 @@ export default function Support() {
     setComplaints([newEntry, ...complaints]);
 
     try {
-      const res = await fetch("https://lumina-hackathon.onrender.com/api/sendmail", {
+      const res = await fetch("http://localhost:8000/api/sendmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

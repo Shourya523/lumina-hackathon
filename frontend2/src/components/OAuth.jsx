@@ -14,7 +14,7 @@ export default function OAuth() {
             const auth = getAuth(app);
             const result = await signInWithPopup(auth, provider);
 
-            const res = await fetch('https://lumina-hackathon.onrender.comapi/auth/google-signin', {
+            const res = await fetch('http://localhost:8000/api/auth/google-signin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
